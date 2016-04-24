@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# allow job control
+set -m
+
+# run rofi then set rule
+rofi -show run & 
+launch_on_current
+
+# bring rofi to foreground so that the rule gets deleted 2 seconds after closing rofi
+# this is to give time for the program to launch and consume the rule
+# and to stop the rule from being deleted before running something in rofi
+fg %1
+sleep 2
+bspc rule -r \*

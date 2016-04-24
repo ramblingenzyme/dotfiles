@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [ $(echo $1 | grep "[uU]") ]; then
+	if [ ! -f /tmp/panel-on ]; then
+		touch /tmp/panel-on
+	fi
+	echo "%{F#FB543F}%{F-}"
+else
+	if [ -f /tmp/window-pid ]; then
+		if [ -f /tmp/panel-on ]; then
+			kill -9 $(cat /tmp/window-pid)
+			rm /tmp/window-pid
+			rm /tmp/panel-on
+		fi
+	fi
+	echo ""
+fi

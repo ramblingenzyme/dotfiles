@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ `xinput list-props 11 | grep "Enabled" | cut -f3` == 1 ]; then
+    xdotool mousemove 0 1080
+    xinput disable 11
+else
+    xdotool mousemove --sync 960 540
+    xinput enable 11
+fi

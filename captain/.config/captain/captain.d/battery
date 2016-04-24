@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Dependencies: acpi, siji
+
+percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+
+case $percentage in
+    [0-9])      token="%{F<#low#>} %{F-}" ;;
+    [1][0-9])   token="%{F<#low#>} %{F-}" ;;
+    [2][0-9])   token="%{F<#med#>} %{F-}" ;;
+    [3-4][0-9]) token="%{F<#med#>} %{F-}" ;;
+    [5-6][0-9]) token="%{F<#high#>} %{F-}" ;;
+    [7-8][0-9]) token="%{F<#high#>} %{F-}" ;;
+    9[0-9]|100) token="%{F<#high#>} %{F-}" ;;
+esac
+
+if [[ $(cat /sys/class/power_supply/BAT0/status | grep Charging) ]]; then
+    token="%{F<#high#>} %{F-}"
+fi
+
+echo "  $token$percentage% "

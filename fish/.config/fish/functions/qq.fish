@@ -1,0 +1,3 @@
+function qq
+	exit
+end

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#
+echo " $(date "+%{F#8BA59B}%{F-} %I:%M %p") "

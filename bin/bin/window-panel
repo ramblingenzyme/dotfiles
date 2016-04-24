@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ -f /tmp/window-pid ]; then
+	kill -9 $(cat /tmp/window-pid) && rm /tmp/window-pid
+else
+	char_width=32
+	desktops=$(xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}')
+	width=$(echo "$char_width*$desktops" | bc)
+	window | lemonbar -g ${width}x35+10+10 -B "#FF1D2021" -F "#FFA89984" -p -f siji &
+	echo $! > /tmp/window-pid
+fi

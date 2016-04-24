@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+TURNIN="false";
+DIRECTIVE="cd $CLASS/$ASSIGN &&"
+
+while getopts :c:a:th opt; do
+	case $opt in
+		c)
+			CLASS="$OPTARG"
+			;;
+		a)
+			ASSIGN="$OPTARG"""
+			;;
+		t)
+			TURNIN="true";
+			;;
+		\?)
+			echo "Invalid option: -$OPTARG"
+			exit 1
+			;;
+		:)
+			echo "Option -$OPTARG requires an argument."
+			exit 1
+			;;
+	esac
+done
+
+shift $((OPTIND-1))
+
+#Mounts banshee if needed
+if ! mountpoint -q /mnt/banshee; then
+	sshfs ss960@banshee.cs.uow.edu.au: /mnt/banshee
+fi
+
+#Creates target directory if doesn't exist
+if [[ ! -d /mnt/banshee/$CLASS/$ASSIGN/ ]]; then
+	mkdir -p /mnt/banshee/$CLASS/$ASSIGN
+fi
+
+cd ~/src/$CLASS/$ASSIGN/
+
+if [[ $# -ne 0 ]]; then
+	cp $@ /mnt/banshee/$CLASS/$ASSIGN
+
+	if [ "$TURNIN" = false ]; then
+		DIRECTIVE="$DIRECTIVE /share/bin/submit -u ss960 -c $CLASS -a $ASSIGN $@"
+	else
+		DIRECTIVE="$DIRECTIVE /share/bin/turnin -c $CLASS -a $ASSIGN $@ && /share/bin/turnout -c $CLASS -a $ASSIGN $@"
+	fi
+
+elif [[ $# -eq 0 ]]; then
+	cp * /mnt/banshee/$CLASS/$ASSIGN
+
+	if [ "$TURNIN" = false ]; then
+		DIRECTIVE="$DIRECTIVE /share/bin/submit -u ss960 -c $CLASS -a $ASSIGN *"
+	else
+		DIRECTIVE="$DIRECTIVE /share/bin/turnin -c $CLASS -a $ASSIGN * && /share/bin/turnout -c $CLASS -a $ASSIGN *"
+	fi
+fi
+
+ssh ss960@banshee.cs.uow.edu.au -t $DIRECTIVE

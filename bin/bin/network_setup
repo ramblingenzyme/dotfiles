@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+rm -rf /tmp/network-status
+mkfifo /tmp/network-status
+echo "starting up" > /tmp/network-status

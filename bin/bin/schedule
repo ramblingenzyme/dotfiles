@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ $# == 0 ]; then
+	cat ~/usr/notes/schedule/$(date "+%A")
+else
+	cat ~/usr/notes/schedule/$1
+fi
