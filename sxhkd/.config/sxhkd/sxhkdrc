@@ -71,6 +71,9 @@ super + {Left,Down,Up,Right}
 super + ctrl + {Left,Down,Up,Right}
     xdo resize {-w -10,-h +10,-h -10,-w +10}
 
+super + alt + {Left,Down,Up,Right}
+    xdo move {-x 20, -y 1060, -y 20, -x 1900}
+
 super + {_,ctrl,alt} + Return
     {termite -e fish,firefox,termite -e ranger}
 
