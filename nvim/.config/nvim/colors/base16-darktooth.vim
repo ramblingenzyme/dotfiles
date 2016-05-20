@@ -314,3 +314,18 @@ delf <sid>cterm
 " Remove color variables
 unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F
 unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
+
+highlight SignColumn   ctermbg = black
+highlight LineNr       ctermbg = black  ctermfg = green
+highlight CursorLineNr ctermbg = black  ctermfg = green
+highlight CursorLine ctermbg = 18
+highlight IncSearch cterm = bold ctermbg = none ctermfg = magenta
+hi GitGutterAdd          ctermbg = black  ctermfg = green
+hi GitGutterChange       ctermbg = black  ctermfg = green
+hi GitGutterDelete       ctermbg = black  ctermfg = red
+hi GitGutterChangeDelete ctermbg = black  ctermfg = red
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionTarget2First ctermfg=yellow
+hi EasyMotionTarget2Second ctermfg=yellow
+
+hi EasyMotionMoveHL ctermfg=black

@@ -74,8 +74,8 @@ super + ctrl + {Left,Down,Up,Right}
 super + alt + {Left,Down,Up,Right}
     xdo move {-x 20, -y 1060, -y 20, -x 1900}
 
-super + {_,ctrl,alt} + Return
-    {termite -e fish,firefox,termite -e ranger}
+super + {_,ctrl,alt, shift} + Return
+    {termite -e fish,firefox,termite -e ranger,termite -e nvim}
 
 super + r
     rofi_wrapper

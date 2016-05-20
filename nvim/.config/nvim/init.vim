@@ -75,10 +75,13 @@ Plug 'janko-m/vim-test'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/goyo.vim'
 Plug 'ervandew/supertab'
+Plug 'critiqjo/lldb.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'benekastah/neomake'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mhinz/vim-startify'
+Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
@@ -88,6 +91,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -97,6 +101,26 @@ Plug 'tomtom/tlib_vim'      |
 Plug 'MarcWeber/vim-addon-mw-utils'
 
 call plug#end()
+
+" vim-multiple-cursors "
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-m>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<C-x>'
+
+" Vimwiki "
+let g:vimwiki_list = [{'path': '~/usr/notes/wiki/'}]
+
+" Startify "
+let g:startify_session_dir = '~/.config/nvim/session'
+
+" Git gutter "
+let g:gitgutter_override_sign_column_highlight = 0
+hi GitGutterAdd          ctermbg = black  ctermfg = green
+hi GitGutterChange       ctermbg = black  ctermfg = green
+hi GitGutterDelete       ctermbg = black  ctermfg = red
+hi GitGutterChangeDelete ctermbg = black  ctermfg = red
 
 " CtrlP "
 let g:ctrlp_extensions = ['quickfix', 'undo']
