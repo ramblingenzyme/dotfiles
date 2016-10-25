@@ -12,8 +12,8 @@ highlight LineNr       ctermbg = black  ctermfg = green
 highlight CursorLineNr ctermbg = black  ctermfg = green
 
 " Cursor line
-set cursorline
-highlight CursorLine ctermbg = 18
+" set cursorline
+highlight CursorLine ctermbg = green
 
 "--FUNCTIONALITY--"
 filetype plugin indent on
@@ -48,7 +48,6 @@ set mouse=
 " Markdown syntax
 autocmd BufRead,BufNew *.md set filetype=markdown
 
-
 "--KEYBINDS--"
 
 " Split navigation
@@ -69,10 +68,11 @@ noremap <leader><CR> :noh<CR>
 "--PLUGINS--"
 call plug#begin ('~/.config/nvim/bundle')
 Plug 'kassio/neoterm'
+Plug 'xolox/vim-misc'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
-Plug 'janko-m/vim-test'
 Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-session'
 Plug 'junegunn/goyo.vim'
 Plug 'ervandew/supertab'
 Plug 'critiqjo/lldb.nvim'
@@ -81,39 +81,35 @@ Plug 'tpope/vim-surround'
 Plug 'benekastah/neomake'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
-Plug 'vimwiki/vimwiki'
+Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
+Plug 'mrtazz/simplenote.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
-
-Plug 'garbas/vim-snipmate'  |
-Plug 'honza/vim-snippets'   |
-Plug 'tomtom/tlib_vim'      |
-Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
-" vim-multiple-cursors "
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-m>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<C-x>'
-
-" Vimwiki "
-let g:vimwiki_list = [{'path': '~/usr/notes/wiki/'}]
-
 " Startify "
-let g:startify_session_dir = '~/.config/nvim/session'
+let g:startify_session_dir = '~/.config/nvim/sessions'
+
+" Session "
+let g:session_directory = '~/.config/nvim/sessions'
+let g:session_autosave = 'no'
+
+" Simplenote "
+source ~/.simplenoterc
+
+" Polyglot "
+let g:jsx_ext_required=0
 
 " Git gutter "
 let g:gitgutter_override_sign_column_highlight = 0
@@ -124,6 +120,10 @@ hi GitGutterChangeDelete ctermbg = black  ctermfg = red
 
 " CtrlP "
 let g:ctrlp_extensions = ['quickfix', 'undo']
+let g:ctrlp_custom_ignore = 'node_modules\|.git'
+
+" NERDTree "
+map <C-\> :NERDTreeToggle<CR>
 
 " EasyMotion "
 hi EasyMotionTarget ctermbg=none ctermfg=red
@@ -152,16 +152,63 @@ nmap ga <Plug>(EasyAlign)
 nmap <C-f> :TagbarToggle<CR>
 
 " neomake "
+let g:neomake_cpp_enable_marks=['gcc']
+let g:neomake_cpp_gcc_args = ["-std=c++11", "-pedantic", "-Wall"]
 autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
+autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
 set complete+=t
-
-" test.vim "
-let test#strategy = "neoterm"
 
 " Commentary "
 autocmd FileType lua setlocal commentstring=--\ %s\ --
 
 " misc "
 set lazyredraw
-set ttyfast
 set regexpengine=1
+
+" Security "
+" Prevent various Vim features from keeping the contents of pass(1) password
+" files (or any other purely temporary files) in plaintext on the system.
+"
+" Either append this to the end of your .vimrc, or install it as a plugin with
+" a plugin manager like Tim Pope's Pathogen.
+"
+" Author: Tom Ryder <tom@sanctum.geek.nz>
+"
+
+" Don't backup files in temp directories or shm
+if exists('&backupskip')
+    set backupskip+=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*
+endif
+
+" Don't keep swap files in temp directories or shm
+if has('autocmd')
+    augroup swapskip
+        autocmd!
+        silent! autocmd BufNewFile,BufReadPre
+            \ /tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*
+            \ setlocal noswapfile
+    augroup END
+endif
+
+" Don't keep undo files in temp directories or shm
+if has('persistent_undo') && has('autocmd')
+    augroup undoskip
+        autocmd!
+        silent! autocmd BufWritePre
+            \ /tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*
+            \ setlocal noundofile
+    augroup END
+endif
+
+" Don't keep viminfo for files in temp directories or shm
+if has('viminfo')
+    if has('autocmd')
+        augroup viminfoskip
+            autocmd!
+            silent! autocmd BufNewFile,BufReadPre
+                \ /tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*
+                \ setlocal viminfo=
+        augroup END
+    endif
+endif
+

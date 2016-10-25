@@ -1,5 +1,7 @@
 #! /bin/sh
-xrdb load ~/.Xresources
+xrdb -merge ~/.Xresources
+
+urxvtd &
 
 sxhkd &
 ~/.fehbg &
@@ -15,13 +17,13 @@ bspc config presel_border_color     "#8BA598"
 bspc config urgent_border_color     "#FE8625"
 bspc config normal_border_color     "#1D2021"
 
-bspc config top_padding 45
+bspc config top_padding 40
 
 bspc config ignore_ewmh_focus true
 bspc config focus_follows_pointer true
 bspc config pointer_follow_monitor true
-bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
 
 bspc config split_ratio         0.50
@@ -31,4 +33,4 @@ bspc config focus_by_distance   true
 
 bspc monitor -d I II III IV V VI
 
-captain &
+panel &

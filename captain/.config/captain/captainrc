@@ -24,7 +24,7 @@ length = 450
 top    = 10
 left   = 735
 fonts  = "FontAwesome 10"
-	 "peep 12"
+         "peep 12"
 dock   = "top"
 offset = 0
 
@@ -48,7 +48,7 @@ mouse-left = "window-panel"
 
 [window]
 manual = true
-reload = "bspc control --subscribe"
+reload = "bspc subscribe"
 
 passive = "#FFA89984"
 focused = "#FF8BA59B"

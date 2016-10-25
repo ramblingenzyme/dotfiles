@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ `xrandr --query | grep "HDMI1 connected"` ]]; then
-	xrandr --output HDMI1  --right-of eDP1 --auto
+	xrandr --output HDMI1 --right-of eDP1 --auto
 	bspc monitor HDMI1 -d VIII IIX IX
 	bspc config -m HDMI1 top_padding 0
 	xinput --set-prop 'Elan Touchpad' 'Device Accel Constant Deceleration' 3
@@ -9,5 +9,5 @@ if [[ `xrandr --query | grep "HDMI1 connected"` ]]; then
 else
 	xrandr --output HDMI1 --off
 	bspc monitor -d I II III IV V VI
-	xinput --set-prop 'Elan Touchpad' 'Device Accel Constant Deceleration' 2
+	xinput --set-prop 'Elan Touchpad' 'Device Accel Constant Deceleration' 2.5
 fi
