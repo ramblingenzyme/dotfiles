@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+vpn="#0D6678"
+normal_color="#8BA59B"
+network_down="#FB543F"
+
+while true; do
+    if [ ! -p /tmp/network-status ];then
+        mkfifo /tmp/network-status
+        echo "init'" > /tmp/network-status &
+    fi
+
+    if read line< /tmp/network-status; then
+        wifi=$(cat /sys/class/net/wlp*/operstate)
+
+        if [[ "$wifi" == "up" ]]; then
+            ssid=$(iwgetid -r)
+            if [[ $(nmcli con show --active | grep vpn) ]]; then
+                color="$vpn"
+                token="\U00f2e5"
+            else
+                color="$normal_color"
+                token="\U00f2e3"
+
+            fi
+        else
+            color="$network_down"
+            ssid="N/A"
+            token="\U00f2e6"
+        fi
+
+        echo -e "%{F$color}$token%{F-} $ssid"
+    fi
+done

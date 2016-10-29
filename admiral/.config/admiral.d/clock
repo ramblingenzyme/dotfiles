@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+icon_color="#8BA59B"
+echo -e "$(date "+%{F$icon_color}\U00f337%{F-} %I:%M %p")"

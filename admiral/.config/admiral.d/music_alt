@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mpc idleloop | \
+while read line; do
+	music=$(mpc current -f "%title%")
+	clear
+	echo $music
+done

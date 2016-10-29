@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Dependencies: xdotool, xtitle
+# Description: Show the currenly active window.
+
+bg="#8BA59B"
+
+xtitle -s | while read -r line; do
+    echo "%{F$bg} $line %{F-}"
+done

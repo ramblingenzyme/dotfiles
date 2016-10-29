@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Dependencies: amixer, siji
+
+mute_color=
+normal_color=
+
+volume=$(amixer sget Master | grep -m 1 -o '[0-9]\+%')
+state=$(amixer sget Master | grep -m 1 -Eoe '\[(on|off)\]')
+
+if   [[ $state == '[off]' ]]; then
+    token="%{F$mute_color} %{F-}"
+else
+    token="%{F$normal_color} %{F-}"
+fi
+
+echo "$token $volume"

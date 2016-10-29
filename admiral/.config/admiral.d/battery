@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Dependencies: acpi, siji
+
+percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+low="#FB543F"
+med="#FE8625"
+high="#96C085"
+token="\U00f116"
+
+case $percentage in
+    [0-9])
+        ;&
+    [1][0-9])
+        color=$low
+        token="\U00f113"
+       ;;
+    [2][0-9])
+        ;&
+    [3][0-9])
+        ;&
+    [4][0-9])
+       color=$med
+       ;;
+    [5][0-9])
+        ;&
+    [6][0-9])
+        ;&
+    [7][0-9])
+        ;&
+    [8][0-9])
+        ;&
+    [9][0-9]|100)
+           color=$high
+           ;;
+esac
+
+status=$(cat /sys/class/power_supply/BAT0/status)
+
+if [[ "$status" == "Charging" || "$status" == "Full" ]]; then
+    token="\U00f114"
+fi
+
+echo -e "%{B$color} $token $percentage% %{B-}"
