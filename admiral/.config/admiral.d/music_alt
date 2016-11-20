@@ -1,8 +1,38 @@
 #!/bin/bash
+bg="#8ba59b"
 
-mpc idleloop | \
+state=$(mpc status | grep -oe '\[[a-z]*\]')
+if [[ -z $state ]]; then
+    token=" "
+elif [[ $state == "[paused]" ]]; then
+    token=""
+else
+    token="";
+fi
+
+music=$(mpc current -f "%artist% - %title%")
+if [[ $music ]]; then
+    echo "%{B$bg} $token$music %{B-}"
+else
+    echo
+fi
+
 while read line; do
-	music=$(mpc current -f "%title%")
-	clear
-	echo $music
-done
+    state=$(mpc status | grep -oe '\[[a-z]*\]')
+    if [[ -z $state ]]; then
+        token=" "
+    elif [[ $state == "[paused]" ]]; then
+        token=""
+    else
+        token="";
+    fi
+
+    music=$(mpc current -f "%artist% - %title%")
+
+    if [[ $music ]]; then
+        echo "%{B$bg} $token$music %{B-}"
+    else
+        echo
+    fi
+
+done< <(mpc idleloop)

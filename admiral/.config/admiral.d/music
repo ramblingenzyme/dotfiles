@@ -16,4 +16,4 @@ else
     token="";
 fi
 
-echo " $token $song"
+echo "$song"

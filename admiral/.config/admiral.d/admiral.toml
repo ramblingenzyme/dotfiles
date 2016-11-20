@@ -1,13 +1,16 @@
 [admiral]
 items = [
-            "left", "workspaces",
-             "center",
-             "right", "spacing",
-             "network", "spacing",
-             "mem", "spacing",
-             "battery", "spacing",
-             "clock", "spacing"
-         ]
+            "left",
+            "workspaces",
+            "music", "spacing",
+            "center", "title",
+            "right", "spacing",
+            "network", "spacing",
+            "mem", "spacing",
+            "volume", "spacing",
+            "battery", "spacing",
+            "clock", "spacing"
+        ]
 
 [workspaces]
 path = "./bspwm_workspaces.sh"
@@ -29,6 +32,12 @@ path = "./network"
 
 [title]
 path = "./title"
+
+[volume]
+path = "./volume"
+
+[music]
+path = "./music_alt"
 
 # Used for formatting lemonbar
 [spacing]

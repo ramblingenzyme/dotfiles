@@ -4,6 +4,6 @@
 
 bg="#8BA59B"
 
-xtitle -s | while read -r line; do
+while read -r line; do
     echo "%{F$bg} $line %{F-}"
-done
+done< <(xtitle -s -t70)

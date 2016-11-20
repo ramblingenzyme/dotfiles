@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 icon_color="#FE8626"
-mem=$(free -h | tr -s ' ' | grep 'Mem' | cut -d " " -f3)
-echo -e "%{F$icon_color}\U00f3e0 %{F-}$mem"
+mem=$(free -h --giga | tr -s ' ' | grep 'Mem' | cut -d " " -f3)
+echo -e "$mem"

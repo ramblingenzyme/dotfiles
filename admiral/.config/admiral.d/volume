@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
-# Dependencies: amixer, siji
-
-mute_color=
-normal_color=
-
 volume=$(amixer sget Master | grep -m 1 -o '[0-9]\+%')
 state=$(amixer sget Master | grep -m 1 -Eoe '\[(on|off)\]')
 
-if   [[ $state == '[off]' ]]; then
-    token="%{F$mute_color} %{F-}"
-else
-    token="%{F$normal_color} %{F-}"
+if [[ $state == '[off]' ]]; then
+    volume="0%"
 fi
+echo "$volume"
 
-echo "$token $volume"
+while read -r line; do
+    if [[ $(echo $line | grep ' sink ') ]]; then
+        volume=$(amixer sget Master | grep -m 1 -o '[0-9]\+%')
+        state=$(amixer sget Master | grep -m 1 -Eoe '\[(on|off)\]')
+
+        if [[ $state == '[off]' ]]; then
+            volume="0%"
+        fi
+        echo "$volume"
+    fi
+done< <(pactl subscribe)

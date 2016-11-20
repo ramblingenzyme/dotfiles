@@ -1,43 +1,44 @@
 #!/usr/bin/env bash
 # Dependencies: acpi, siji
 
-percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+percentage1=$(cat /sys/class/power_supply/BAT0/capacity)
+percentage2=$(cat /sys/class/power_supply/BAT1/capacity)
+percentage=$(echo "scale=1; ($percentage1+$percentage2)/2" | bc -l)
 low="#FB543F"
-med="#FE8625"
+med="#FEB625"
 high="#96C085"
-token="\U00f116"
+token="-"
 
 case $percentage in
-    [0-9])
+    2[0-9]*)
         ;&
-    [1][0-9])
-        color=$low
-        token="\U00f113"
-       ;;
-    [2][0-9])
+    3[0-9]*)
         ;&
-    [3][0-9])
-        ;&
-    [4][0-9])
+    4[0-9]*)
        color=$med
        ;;
-    [5][0-9])
+    5[0-9]*)
         ;&
-    [6][0-9])
+    6[0-9]*)
         ;&
-    [7][0-9])
+    7[0-9]*)
         ;&
-    [8][0-9])
+    8[0-9]*)
         ;&
-    [9][0-9]|100)
-           color=$high
-           ;;
+    9[0-9]*|10*)
+       color=$high
+       ;;
+    1*)
+        ;&
+    *)
+       color=$low
+       ;;
 esac
 
-status=$(cat /sys/class/power_supply/BAT0/status)
+ac=$(cat /sys/class/power_supply/AC/online)
 
-if [[ "$status" == "Charging" || "$status" == "Full" ]]; then
-    token="\U00f114"
+if [[ "$ac" == "1" ]]; then
+    token="+"
 fi
 
-echo -e "%{B$color} $token $percentage% %{B-}"
+echo -e "%{B$color} $percentage%$token %{B-}"
