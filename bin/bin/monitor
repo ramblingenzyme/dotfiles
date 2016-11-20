@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
-if [[ `xrandr --query | grep "HDMI1 connected"` ]]; then
-	xrandr --output HDMI1 --right-of eDP1 --auto
-	bspc monitor HDMI1 -d VIII IIX IX
+if [[ `xrandr --query | grep "HDMI2 connected"` ]]; then
+	xrandr --output HDMI2 --right-of eDP1 --auto
+
+	bspc monitor HDMI2 -d VIII IIX IX
 	bspc config -m HDMI1 top_padding 0
-	xinput --set-prop 'Elan Touchpad' 'Device Accel Constant Deceleration' 3
-	./.fehbg
+
+	xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Device Accel Constant Deceleration' 3
+	hsetroot -fill ~/.config/bspwm/background.jpg
 else
-	xrandr --output HDMI1 --off
+	xrandr --output HDMI2 --off
+
 	bspc monitor -d I II III IV V VI
-	xinput --set-prop 'Elan Touchpad' 'Device Accel Constant Deceleration' 2.5
+
+	xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Device Accel Constant Deceleration' 2.5
+	hsetroot -fill ~/.config/bspwm/background.jpg
 fi

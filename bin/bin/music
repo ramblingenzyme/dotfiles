@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
 
 if [ "$1" == "toggle" ]; then
-	if pgrep pianobar > /dev/null; then
-		echo p > ~/.config/pianobar/ctl
-	elif pgrep ncmpcpp > /dev/null; then
-		mpc toggle
-	fi
+    if pgrep pianobar > /dev/null; then
+        echo p > ~/.config/pianobar/ctl
+    elif pgrep ncmpcpp > /dev/null; then
+        mpc toggle
+    fi
 elif [ "$1" == "next" ]; then
-	if pgrep "pianobar" > /dev/null; then
-		echo "n" > ~/.config/pianobar/ctl
-	elif pgrep "ncmpcpp" > /dev/null; then
-		mpc next
-	fi
+    if pgrep "pianobar" > /dev/null; then
+        echo "n" > ~/.config/pianobar/ctl
+    elif pgrep "ncmpcpp" > /dev/null; then
+        mpc next
+    fi
+elif [ "$1" == "prev" ]; then
+    if pgrep "pianobar" > /dev/null; then
+        echo "n" > ~/.config/pianobar/ctl
+    elif pgrep "ncmpcpp" > /dev/null; then
+        mpc prev
+    fi
+
 fi

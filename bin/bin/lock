@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-scrot ~/lock.png
-convert -filter Gaussian -resize 50% -define filter:sigma=2 -resize 200% ~/lock.png ~/lock.png
+maim ~/.lock.png
+convert -filter Gaussian -resize 50% -define filter:sigma=2 -resize 200% ~/.lock.png ~/.lock.png
 pkill -USR1 dunst
-i3lock -nu -i ~/lock.png
+i3lock -nu -i ~/.lock.png
 pkill -USR2 dunst
-rm ~/lock.png
+rm ~/.lock.png

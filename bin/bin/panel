@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-echo "asdf" > /tmp/network-status &
-exec admiral | lemonbar -a 15 -B"#1D2021" -F"#FDF4C1" -f peep -f"Material\-Design\-Iconic\-Font:size=14" -g 1900x35+10+10 | bash
-# exec admiral | lemonbar -a 15 -B"#1D2021" -F"#FDF4C1" -f peep -f"Material\-Design\-Iconic\-Font:size=14" -g 1920x30 | bash
+# exec admiral | lemonbar -a 15 -B"#1D2021" -F"#FDF4C1" -f peep -f"Material\-Design\-Iconic\-Font:size=14" -g 1900x30+10+10 | bash &
+exec admiral | lemonbar -B"#1D2021" -F"#FDF4C1" -f peep -f "Stlarch:size=16" -g 1920x30 -o -2 | bash
+

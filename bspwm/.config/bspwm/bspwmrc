@@ -1,12 +1,15 @@
-#! /bin/sh
+#! /usr/bin/env bash
 xrdb -merge ~/.Xresources
-
-urxvtd &
+xmodmap ~/.Xmodmap
 
 sxhkd &
-~/.fehbg &
+urxvtd &
+
+panel &
+
 compton -bcf -D 3
-xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr
+hsetroot -fill ~/.config/bspwm/background.jpg
 
 bspc config border_width        5
 bspc config window_gap         20
@@ -17,7 +20,7 @@ bspc config presel_border_color     "#8BA598"
 bspc config urgent_border_color     "#FE8625"
 bspc config normal_border_color     "#1D2021"
 
-bspc config top_padding 40
+bspc config top_padding 30
 
 bspc config ignore_ewmh_focus true
 bspc config focus_follows_pointer true
@@ -32,5 +35,3 @@ bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 
 bspc monitor -d I II III IV V VI
-
-panel &

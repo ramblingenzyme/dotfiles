@@ -86,46 +86,41 @@ super + r
 
 # mpc
 F1
-    music toggle
+    mpc prev
 
 F2
-    music next
+    mpc toggle
 
-# yt
 F3
-    mpv --ytdl "$(xclip -o -selection clipboard)"
-
-F4
-    mouse
-
-F5
-    monitor
+    mpc next
 
 # brightness
-F6
+XF86MonBrightnessDown
     xbacklight -5
 
-shift + F6
+shift + XF86MonBrightnessDown
     xbacklight = 1
 
-F7
+XF86MonBrightnessUp
     xbacklight +5
 
-shift + F7
+shift + XF86MonBrightnessUp
     xbacklight = 100
 
+XF86Display
+    monitor
 
 # audio
-F8
+XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-F9
+XF86AudioLowerVolume
     pactl set-sink-volume @DEFAULT_SINK@ -2%
 
-F10
+XF86AudioRaiseVolume
     pactl set-sink-volume @DEFAULT_SINK@ +2%
 
-XF86PowerOff
+XF86Explorer
     lock
 
 # make sxhkd reload its configuration files:
