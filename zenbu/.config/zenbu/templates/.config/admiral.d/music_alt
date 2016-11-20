@@ -1,0 +1,38 @@
+#!/bin/bash
+bg="{{ panel.mpd.background }}"
+
+state=$(mpc status | grep -oe '\[[a-z]*\]')
+if [[ -z $state ]]; then
+    token=" "
+elif [[ $state == "[paused]" ]]; then
+    token=""
+else
+    token="";
+fi
+
+music=$(mpc current -f "%artist% - %title%")
+if [[ $music ]]; then
+    echo "%{B$bg} $token$music %{B-}"
+else
+    echo
+fi
+
+while read line; do
+    state=$(mpc status | grep -oe '\[[a-z]*\]')
+    if [[ -z $state ]]; then
+        token=" "
+    elif [[ $state == "[paused]" ]]; then
+        token=""
+    else
+        token="";
+    fi
+
+    music=$(mpc current -f "%artist% - %title%")
+
+    if [[ $music ]]; then
+        echo "%{B$bg} $token$music %{B-}"
+    else
+        echo
+    fi
+
+done< <(mpc idleloop)

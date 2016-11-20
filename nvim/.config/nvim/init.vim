@@ -7,13 +7,14 @@ colo base16-darktooth
 
 " Line number
 set nu
-highlight SignColumn   ctermbg = black
-highlight LineNr       ctermbg = black  ctermfg = green
-highlight CursorLineNr ctermbg = black  ctermfg = green
+" highlight SignColumn   ctermbg = black
+" highlight LineNr       ctermbg = black  ctermfg = green
+" highlight CursorLineNr ctermbg = black  ctermfg = green
 
 " Cursor line
 " set cursorline
 highlight CursorLine ctermbg = green
+highlight Comment ctermfg = cyan
 
 "--FUNCTIONALITY--"
 filetype plugin indent on
@@ -89,6 +90,7 @@ Plug 'mrtazz/simplenote.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/limelight.vim'
+Plug 'noahfrederick/vim-noctu'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'

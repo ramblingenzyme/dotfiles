@@ -1,0 +1,64 @@
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+rofi.font: Dina 10
+rofi.terminal: urxvt
+rofi.color-enabled: true
+rofi.color-window: {{ colors.background }}, {{ colors.background }}, {{ colors.foreground }}
+rofi.color-normal: {{ colors.background }}, {{ colors.foreground }}, {{ colors.background }}, {{ colors.cyan }}, {{ colors.background }}
+rofi.color-active: {{ colors.background }}, {{ colors.magenta }}, {{ colors.background }}, {{ colors.cyan }}, {{ colors.background }}
+rofi.color-urgent: {{ colors.background }}, {{ colors.red }}, {{ colors.background }}, {{ colors.cyan }}, {{ colors.background }}
+
+URxvt.scrollBar: false
+URxvt.internalBorder: 20
+
+URxvt.urgentOnBell: true
+URxvt.termName: screen-256color
+/* URxvt.font: xft:peep:size=12, xft:Unifont:size=12 */
+URxvt.font: xft:Dina:size=10,style:normal, xft:Unifont:size=10
+
+URxvt*perl-lib: /usr/lib/urxvt/perl/
+URxvt*perl-ext: default,matcher,searchable-scrollback
+URxvt*url-launcher: firefox
+URxvt*matcher.button: 1
+
+! special
+*.foreground:   {{ colors.foreground }}
+*.background:   {{ colors.background }}
+*.cursorColor:  {{ colors.foreground }}
+
+! black
+*.color0:       {{ colors.black }}
+*.color8:       {{ colors.black }}
+
+! red
+*.color1:       {{ colors.red }}
+*.color9:       {{ colors.red }}
+
+! green
+*.color2:       {{ colors.green }}
+*.color10:      {{ colors.green }}
+
+! yellow
+*.color3:       {{ colors.yellow }}
+*.color11:      {{ colors.yellow }}
+
+! blue
+*.color4:       {{ colors.blue }}
+*.color12:      {{ colors.blue }}
+
+! magenta
+*.color5:       {{ colors.magenta }}
+*.color13:      {{ colors.magenta }}
+
+! cyan
+*.color6:       {{ colors.cyan }}
+*.color14:      {{ colors.cyan }}
+
+! white
+*.color7:       {{ colors.white }}
+*.color15:      {{ colors.white }}

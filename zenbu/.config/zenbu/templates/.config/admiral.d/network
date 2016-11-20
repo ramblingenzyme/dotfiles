@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# vpn="#0D6678"
+# normal_color="#8BA59B"
+# network_down="#FB543F"
+wifi=$(cat /sys/class/net/wlp*/operstate)
+
+if [[ "$wifi" == "up" ]]; then
+    ssid=$(iwgetid -r)
+else
+    ssid="N/A"
+fi
+
+echo "$ssid"
+
+while read -r line; do
+    if (echo $line | grep 'State'); then
+        wifi=$(cat /sys/class/net/wlp*/operstate)
+
+        if [[ "$wifi" == "up" ]]; then
+            ssid=$(iwgetid -r)
+        else
+            ssid="N/A"
+        fi
+
+        echo "$ssid"
+    fi
+
+done< <(connmanctl monitor --services)

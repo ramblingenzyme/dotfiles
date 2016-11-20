@@ -1,0 +1,25 @@
+# Fonts
+term_fonts: "Dina"
+pixelsize: 10
+
+# Background
+background_file:    "rustic.jpg"
+
+# Colors
+colors:
+    black:          "#1d2520"
+    red:            "#a95c33"
+    green:          "#aa7745"
+    yellow:         "#aa762d"
+    blue:           "#aa8f32"
+    magenta:        "#a99950"
+    cyan:           "#a9a37a"
+    white:          "#c9b79f"
+    foreground:     "{{ colors.white }}"
+    background:     "{{ colors.black }}"
+
+panel:
+    battery:
+        med: "{{ colors.yellow }}"
+    mpd:
+      background: "{{ colors.red }}"

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+icon_color="#FE8626"
+mem=$(free -h --giga | tr -s ' ' | grep 'Mem' | cut -d " " -f3)
+echo -e "$mem"
