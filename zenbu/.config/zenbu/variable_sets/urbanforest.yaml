@@ -1,0 +1,25 @@
+# Fonts
+term_fonts: "Dina"
+pixelsize: 10
+
+# Background
+background_file:    "urbanforest.jpg"
+
+# Colors
+colors:
+    black:          "#1d2520"
+    red:            "#a9a997"
+    green:          "#c3c3af"
+    yellow:         "#57aa60"
+    blue:           "#70aa7a"
+    magenta:        "#84aa8a"
+    cyan:           "#aec6b4"
+    white:          "#d4e8d2"
+    foreground:     "{{ colors.white }}"
+    background:     "{{ colors.black }}"
+
+panel:
+    battery:
+        med: "{{ colors.yellow }}"
+    mpd:
+      background: "{{ colors.magenta }}"

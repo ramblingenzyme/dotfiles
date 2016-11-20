@@ -14,15 +14,17 @@ colors:
   blue:         "#0D6678"
   magenta:      "#8F4673"
   cyan:         "#8BA59B"
-  white:        "#FDF4C1"
-  foreground:   "#A89984"
-  background:   "#1D2021"
+  white:        "#A89984"
+  foreground:   "{{ colors.white }}"
+  background:   "{{ colors.black }}"
 
 # Panel
 panel:
+    background:     "{{ colors.black }}"
+    foreground:     "{{ colors.white }}"
     battery:
         high:       "{{ colors.green }}"
-        med:        "#FEB625"
+        med:        "{{ colors.yellow }}"
         low:        "{{ colors.red }}"
     workspaces:
         focused:    "{{ colors.magenta }}"
