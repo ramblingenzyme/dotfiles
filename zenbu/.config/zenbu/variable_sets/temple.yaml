@@ -1,0 +1,8 @@
+background_file: temple.jpg
+colors:
+    red: '#aa321d'
+    green: '#aa7155'
+    yellow: '#a99c8d'
+    blue: '#bbc0c1'
+    magenta: '#9aa5ab'
+    cyan: '#748fa9'

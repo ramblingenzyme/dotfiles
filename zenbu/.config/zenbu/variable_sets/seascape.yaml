@@ -1,0 +1,8 @@
+background_file: seascape.jpg
+colors:
+    red: '#aa6d36'
+    green: '#aa895e'
+    yellow: '#4478b0'
+    blue: '#7694bb'
+    magenta: '#9ba7ba'
+    cyan: '#bbbfc5'

@@ -1,22 +1,14 @@
-# Fonts
-term_fonts: "Dina"
-pixelsize: 10
-
 # Background
 background_file:    "mountains.jpg"
 
 # Colors
 colors:
-    black:          "#32343e"
     red:            "#c3c1c0"
     green:          "#a79273"
     yellow:         "#a6a4a1"
     blue:           "#36a591"
     magenta:        "#6f98a6"
     cyan:           "#8e99a7"
-    white:          "#e2e2f3"
-    foreground:     "{{ colors.white }}"
-    background:     "{{ colors.black }}"
 
 panel:
     battery:

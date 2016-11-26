@@ -138,7 +138,7 @@ hi EasyMotionMoveHL ctermfg=black
 let g:airline_left_sep  = ''
 let g:airline_right_sep = ''
 
-let g:airline_theme = 'base16color'
+let g:airline_theme = 'hybridline'
 let g:airline#extensions#tabline#enabled = 1
 
 " SuperTab "

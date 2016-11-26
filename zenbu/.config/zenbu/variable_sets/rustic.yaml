@@ -1,7 +1,3 @@
-# Fonts
-term_fonts: "Dina"
-pixelsize: 10
-
 # Background
 background_file:    "rustic.jpg"
 

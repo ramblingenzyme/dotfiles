@@ -1,0 +1,8 @@
+background_file: trail_bridge.jpg
+colors:
+    red: '#aa9e95'
+    green: '#a49172'
+    yellow: '#6495a6'
+    blue: '#8a9fa7'
+    magenta: '#a5a5a7'
+    cyan: '#c1babb'

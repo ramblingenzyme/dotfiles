@@ -1,0 +1,8 @@
+background_file: shipwreak.jpg
+colors:
+    red: '#a9998f'
+    green: '#aa8a70'
+    yellow: '#aa7c56'
+    blue: '#c59465'
+    magenta: '#c7a379'
+    cyan: '#c7b07d'

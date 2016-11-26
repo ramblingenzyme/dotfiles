@@ -6,7 +6,7 @@ urxvtd &
 
 panel &
 
-./bspwm_colors
+bspwm_colors
 
 compton -bcf -D 3
 xsetroot -cursor_name left_ptr

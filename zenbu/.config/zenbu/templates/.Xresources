@@ -22,7 +22,7 @@ URxvt.termName: screen-256color
 URxvt.font: xft:Dina:size=10,style:normal, xft:Unifont:size=10
 
 URxvt*perl-lib: /usr/lib/urxvt/perl/
-URxvt*perl-ext: default,matcher,searchable-scrollback,config-reload
+URxvt*perl-ext: default,matcher,searchable-scrollback
 URxvt*url-launcher: firefox
 URxvt*matcher.button: 1
 

@@ -1,0 +1,8 @@
+background_file: castle.jpg
+colors:
+    red: '#aa6e11'
+    green: '#a98e47'
+    yellow: '#a6a37b'
+    blue: '#a39d19'
+    magenta: '#60aa37'
+    cyan: '#95abc1'

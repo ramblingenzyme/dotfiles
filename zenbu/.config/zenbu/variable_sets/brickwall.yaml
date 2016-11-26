@@ -1,0 +1,8 @@
+background_file: brickwall.jpg
+colors:
+    red: '#ab7875'
+    green: '#ab665c'
+    yellow: '#a9b8c2'
+    blue: '#7f8daa'
+    magenta: '#a6a0a5'
+    cyan: '#aa898d'

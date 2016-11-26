@@ -1,0 +1,8 @@
+background_file: arctic.jpg
+colors:
+    red: '#0a76aa'
+    green: '#2c7daa'
+    yellow: '#4984aa'
+    blue: '#7ba2bb'
+    magenta: '#628daa'
+    cyan: '#9fb6c7'

@@ -1,0 +1,8 @@
+background_file: city_sea.jpg
+colors:
+    red: '#af8f86'
+    green: '#b2694c'
+    yellow: '#9fa6a4'
+    blue: '#5ba8a3'
+    magenta: '#7ba8a5'
+    cyan: '#c6b3b3'

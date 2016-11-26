@@ -1,0 +1,8 @@
+background_file: chinatown.jpg
+colors:
+    red: '#aa431c'
+    green: '#ad6438'
+    yellow: '#ac917d'
+    blue: '#ac7b57'
+    magenta: '#b5afa6'
+    cyan: '#6477ac'

@@ -1,0 +1,8 @@
+background_file: meadow.jpg
+colors:
+    red: '#8ca847'
+    green: '#88a973'
+    yellow: '#9ba698'
+    blue: '#6f95af'
+    magenta: '#90a6c6'
+    cyan: '#b9bdc5'
