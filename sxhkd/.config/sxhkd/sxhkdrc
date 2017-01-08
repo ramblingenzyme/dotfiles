@@ -18,8 +18,15 @@ super + f
         bspc node focused -t tiled; \
     fi
 
-super + {ctrl,shift} + space
-    bspc {node -t tiled,node -p cancel}
+super + ctrl + space
+    bspc node -p cancel
+
+super + space
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
 
 super + apostrophe
     bspc node -s last
@@ -28,7 +35,7 @@ super + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
 super + {comma,period}
-    bspc desktop -f {prev,next}
+    bspc node @/ -R {270,90}
 
 super + ctrl + {h,j,k,l}
     bspc node -p {west,south,north,east}
@@ -81,8 +88,8 @@ super + alt + {Left,Down,Up,Right}
 super + {_,ctrl,alt, shift} + Return
     {termite -e fish,firefox,termite -e ranger,termite -e nvim}
 
-super + r
-    rofi_wrapper
+super + {_,alt} r
+    {rofi_wrapper,rofi-pass}
 
 # mpc
 F1

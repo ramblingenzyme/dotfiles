@@ -51,6 +51,8 @@ autocmd BufRead,BufNew *.md set filetype=markdown
 
 "--KEYBINDS--"
 
+map <F10> :Goyo <bar> :Limelight!! <bar> :TogglePencil <CR>
+
 " Split navigation
 noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
@@ -68,35 +70,45 @@ noremap <leader><CR> :noh<CR>
 
 "--PLUGINS--"
 call plug#begin ('~/.config/nvim/bundle')
-Plug 'kassio/neoterm'
-Plug 'xolox/vim-misc'
+" For writing
+Plug 'reedes/vim-pencil'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
+" Tpope
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
-Plug 'majutsushi/tagbar'
-Plug 'xolox/vim-session'
-Plug 'junegunn/goyo.vim'
-Plug 'ervandew/supertab'
-Plug 'critiqjo/lldb.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+" Functionality
+Plug 'majutsushi/tagbar'
+Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
+Plug 'tommcdo/vim-exchange'
 Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-commentary'
-Plug 'mrtazz/simplenote.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/limelight.vim'
-Plug 'noahfrederick/vim-noctu'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
-Plug 'easymotion/vim-easymotion'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'chriskempson/base16-vim'
+
+" Aesthetics
+Plug 'mhinz/vim-startify'
+Plug 'sheerun/vim-polyglot'
+Plug 'noahfrederick/vim-noctu'
+Plug 'vim-airline/vim-airline-themes'
+
+" Misc
+Plug 'kassio/neoterm'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+Plug 'critiqjo/lldb.nvim'
+Plug 'mrtazz/simplenote.vim'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 

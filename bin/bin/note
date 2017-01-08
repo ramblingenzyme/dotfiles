@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
 if [ "$1" == "-l" ]; then
-	ls *.md
+    ls *.md
 
 elif [ "$1" == "-c" ] && ls | grep $2 > /dev/null ; then
-	pandoc $(ls | grep $2) -o "${2}.pdf"
+    pandoc $(ls | grep $2) -o "${2}.pdf"
+    exit
 
 elif ls | grep $1 > /dev/null ; then
-	nvim $(ls | grep $1 | grep ".md")
-
+    FILE=$(ls | grep $1 | grep ".md")
 else
-	nvim  "$(date --rfc-3339='date')-$1.md"
+    FILE="$(date --rfc-3339='date')-$1.md"
 fi
+
+exec nvim $FILE

@@ -1,0 +1,8 @@
+background_file: cliff_bridge.jpg
+colors:
+    red: '#aa8a74'
+    green: '#ac834a'
+    yellow: '#b4b8a2'
+    blue: '#92a7a5'
+    magenta: '#6952aa'
+    cyan: '#a07ea1'

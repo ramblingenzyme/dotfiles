@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+THEME=$(ls ~/.config/zenbu/variable_sets/ | cut -d. -f1 | fzf)
+
+if [ $THEME ]; then
+    zenbu $THEME >/dev/null
+    bspwm_colors &
+fi

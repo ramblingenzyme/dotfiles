@@ -3,14 +3,12 @@
 xrdb -load ~/.Xresources
 
 pkill -USR1 termite
+pkill -USR1 polybar
 
 bspc config focused_border_color    "#F0F0F0"
 bspc config active_border_color     "#F0F0F0"
-bspc config presel_border_color     "#3f35aa"
-bspc config urgent_border_color     "#bc7e62"
+#bspc config presel_border_color    "#ba9d64"
+#bspc config urgent_border_color    "#aa8a81"
 bspc config normal_border_color     "#232324"
 
-hsetroot -fill ~/.config/bspwm/backgrounds/trainyard.jpg
-
-pkill music_alt
-pkill bash
+hsetroot -fill ~/.config/bspwm/backgrounds/river_canyon.jpg

@@ -1,0 +1,8 @@
+background_file: river_canyon.jpg
+colors:
+    red: '#aa8a81'
+    green: '#b56f41'
+    yellow: '#ba9d64'
+    blue: '#2885a6'
+    magenta: '#648ca9'
+    cyan: '#9798a7'

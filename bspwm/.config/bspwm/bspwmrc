@@ -1,15 +1,7 @@
 #! /usr/bin/env bash
-xmodmap ~/.Xmodmap
-
 sxhkd &
-urxvtd &
 
-panel &
-
-bspwm_colors
-
-compton -bcf -D 3
-xsetroot -cursor_name left_ptr
+polybar default -r &
 
 bspc config border_width        5
 bspc config window_gap         20
@@ -29,3 +21,5 @@ bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 
 bspc monitor -d I II III IV V VI
+
+bspwm_colors
