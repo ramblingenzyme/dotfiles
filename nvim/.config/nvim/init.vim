@@ -12,8 +12,8 @@ highlight LineNr       ctermbg = black  ctermfg = green
 highlight CursorLineNr ctermbg = black  ctermfg = green
 
 " Cursor line
-set cursorline
-highlight CursorLine ctermbg = 18
+" set cursorline
+highlight CursorLine ctermbg = cyan
 
 "--FUNCTIONALITY--"
 filetype plugin indent on
@@ -48,7 +48,6 @@ set mouse=
 " Markdown syntax
 autocmd BufRead,BufNew *.md set filetype=markdown
 
-
 "--KEYBINDS--"
 
 " Split navigation
@@ -73,25 +72,19 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'janko-m/vim-test'
 Plug 'majutsushi/tagbar'
-Plug 'junegunn/goyo.vim'
 Plug 'ervandew/supertab'
-Plug 'critiqjo/lldb.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'benekastah/neomake'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mhinz/vim-startify'
-Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -110,10 +103,10 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-x>'
 
 " Vimwiki "
-let g:vimwiki_list = [{'path': '~/usr/notes/wiki/'}]
+" let g:vimwiki_list = [{'path': '~/usr/notes/wiki/'}]
 
 " Startify "
-let g:startify_session_dir = '~/.config/nvim/session'
+" let g:startify_session_dir = '~/.config/nvim/session'
 
 " Git gutter "
 let g:gitgutter_override_sign_column_highlight = 0
@@ -124,6 +117,7 @@ hi GitGutterChangeDelete ctermbg = black  ctermfg = red
 
 " CtrlP "
 let g:ctrlp_extensions = ['quickfix', 'undo']
+let g:ctrlp_custom_ignore = 'node_modules\|.git'
 
 " EasyMotion "
 hi EasyMotionTarget ctermbg=none ctermfg=red
@@ -153,6 +147,7 @@ nmap <C-f> :TagbarToggle<CR>
 
 " neomake "
 autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
+autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
 set complete+=t
 
 " test.vim "
@@ -162,6 +157,6 @@ let test#strategy = "neoterm"
 autocmd FileType lua setlocal commentstring=--\ %s\ --
 
 " misc "
-set lazyredraw
-set ttyfast
+" set lazyredraw
+" set ttyfast
 set regexpengine=1

@@ -1,8 +1,7 @@
-set fisher_home ~/.local/share/fisherman
-set fisher_config ~/.config/fisherman
-source $fisher_home/config.fish
-eval (dircolors -c ~/.dircolors)
+set -x NVM_DIR $HOME/.nvm
+set -x PATH $NVM_DIR/.nvm/bin/node-v6.5.0-darwin-x64/ $PATH
+
+#eval (dircolors -c ~/.dircolors)
 set -x BROWSER firefox
 set -x EDITOR nvim
-
-set -x PATH $PREFIX/bin ~/bin $PATH
+nvm use node
