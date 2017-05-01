@@ -11,25 +11,11 @@ super + shift + s
 super + {a,s,d}
     bspc desktop -f {prev.local,last.local,next.local}
 
-super + f
-    if [ -z "$(bspc query -N -n focused.fullscreen)" ]; then \
-        bspc node focused -t fullscreen; \
-    else \
-        bspc node focused -t tiled; \
-    fi
+super + {f,t,space}
+    bspc node -t {~fullscreen,tiled,~floating}
 
 super + ctrl + space
     bspc node -p cancel
-
-super + space
-    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
-        bspc node focused -t floating; \
-    else \
-        bspc node focused -t tiled; \
-    fi
-
-super + apostrophe
-    bspc node -s last
 
 super + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
@@ -62,10 +48,7 @@ super + {_,shift +}{q,w,e,z,x,c}
     bspc {desktop -f,node -d} '^{4-9}'
 
 super + {minus,equal}
-    bspc config -d focused node_gap $((`bspc config -d focused node_gap` {+,-} 2 ))
-
-super + v
-    bspc control --toggle-visibility
+    bspc config window_gap $((`bspc config window_gap` {-,+} 2 ))
 
 
 #
@@ -88,8 +71,8 @@ super + alt + {Left,Down,Up,Right}
 super + {_,ctrl,alt, shift} + Return
     {termite -e fish,firefox,termite -e ranger,termite -e nvim}
 
-super + {_,alt} r
-    {rofi_wrapper,rofi-pass}
+super +  r
+    rofi_wrapper
 
 # mpc
 F1
@@ -102,17 +85,11 @@ F3
     mpc next
 
 # brightness
-XF86MonBrightnessDown
-    xbacklight -5
+{_,shift+} XF86MonBrightnessDown
+    xbacklight {-5,= 1}
 
-shift + XF86MonBrightnessDown
-    xbacklight = 1
-
-XF86MonBrightnessUp
-    xbacklight +5
-
-shift + XF86MonBrightnessUp
-    xbacklight = 100
+{_,shift+} XF86MonBrightnessUp
+    xbacklight {+5,= 100}
 
 XF86Display
     monitor
@@ -121,11 +98,8 @@ XF86Display
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -2%
-
-XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +2%
+{XF86AudioLowerVolume,XF86AudioRaiseVolume}
+    pactl set-sink-volume @DEFAULT_SINK@ {-,+}2%
 
 XF86Explorer
     lock

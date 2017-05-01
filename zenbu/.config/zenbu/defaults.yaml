@@ -7,7 +7,7 @@ background_file:    "darktooth.jpg"
 
 # Colors
 colors:
-  black:        "#232324"
+  black:        "#4b4b4c"
   red:          "#FB543F"
   green:        "#95C085"
   yellow:       "#FAC03B"
@@ -16,11 +16,11 @@ colors:
   cyan:         "#8BA59B"
   white:        "#F0F0F0"
   foreground:   "{{ colors.white }}"
-  background:   "{{ colors.black }}"
+  background:   "#232324"
 
 # Panel
 panel:
-    background:     "{{ colors.black }}"
+    background:     "{{ colors.background }}"
     foreground:     "{{ colors.white }}"
     battery:
         high:       "{{ colors.green }}"

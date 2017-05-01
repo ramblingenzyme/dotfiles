@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# Dependencies: xdotool, xtitle
-# Description: Show the currenly active window.
-
-bg="{{ panel.title.background }}"
-
-while read -r line; do
-    echo "%{F$bg} $line %{F-}"
-done< <(xtitle -s -t70)

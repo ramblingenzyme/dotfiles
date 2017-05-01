@@ -1,24 +1,110 @@
+"--PLUGINS--"
+call plug#begin ('~/.config/nvim/bundle')
+" For writing
+Plug 'reedes/vim-pencil'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
+" Tpope
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+" Functionality
+Plug 'sickill/vim-pasta'
+Plug 'majutsushi/tagbar'
+Plug 'ervandew/supertab'
+Plug 'benekastah/neomake'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tommcdo/vim-exchange'
+Plug 'Raimondi/delimitMate'
+Plug 'kshenoy/vim-signature'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-easy-align'
+Plug 'vim-airline/vim-airline'
+Plug 'ntpeters/vim-better-whitespace'
+
+" Aesthetics
+Plug 'sheerun/vim-polyglot'
+Plug 'noahfrederick/vim-noctu'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
+" Polyglot "
+let g:jsx_ext_required=0
+
+" Git gutter "
+hi GitGutterAdd          ctermfg = green
+hi GitGutterChange       ctermfg = green
+hi GitGutterDelete       ctermfg = red
+hi GitGutterChangeDelete ctermfg = red
+
+" CtrlP "
+let g:ctrlp_extensions = ['quickfix', 'undo']
+let g:ctrlp_custom_ignore = 'node_modules\|.git'
+
+" NERDTree "
+map <C-\> :NERDTreeToggle<CR>
+
+" Airline "
+let g:airline_left_sep  = ''
+let g:airline_right_sep = ''
+
+let g:airline_theme = 'term'
+let g:airline#extensions#tabline#enabled = 1
+
+" SuperTab "
+let g:SuperTabCrMapping = 1
+let g:SuperTabMappingTabLiteral = '<S-Tab>'
+let g:SuperTabDefaultCompletionType = 'context'
+
+" vim-easy-align "
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" tagbar "
+nmap <C-f> :TagbarToggle<CR>
+
+" neomake "
+let g:neomake_cpp_enable_marks=['gcc']
+let g:neomake_cpp_gcc_args = ["-std=c++11", "-pedantic", "-Wall"]
+
+autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
+autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
+set complete+=t
+
+" Commentary "
+autocmd FileType lua setlocal commentstring=--\ %s\ --
+
 "--APPEARANCE--"
 " Syntax
 syntax on
 set noshowmode
 set background=dark
-colo base16-darktooth
+colo noctu
 
 " Line number
 set nu
-" highlight SignColumn   ctermbg = black
-" highlight LineNr       ctermbg = black  ctermfg = green
-" highlight CursorLineNr ctermbg = black  ctermfg = green
-
-" Cursor line
-" set cursorline
-highlight CursorLine ctermbg = green
-highlight Comment ctermfg = cyan
 
 "--FUNCTIONALITY--"
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
+
+" File browsing
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S+'
+
+" Fuzzy find
+set path+=**
+set wildmenu
 
 " Split
 set splitbelow
@@ -51,7 +137,17 @@ autocmd BufRead,BufNew *.md set filetype=markdown
 
 "--KEYBINDS--"
 
-map <F10> :Goyo <bar> :Limelight!! <bar> :TogglePencil <CR>
+" Tab navigation
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnew<CR>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+
+map <F10> :Goyo 100 <bar> :Limelight!! <bar> :SoftPencil <CR>
 
 " Split navigation
 noremap <C-J> <C-W><C-J>
@@ -68,116 +164,6 @@ nnoremap gk k
 
 noremap <leader><CR> :noh<CR>
 
-"--PLUGINS--"
-call plug#begin ('~/.config/nvim/bundle')
-" For writing
-Plug 'reedes/vim-pencil'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-
-" Tpope
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-
-" Functionality
-Plug 'majutsushi/tagbar'
-Plug 'ervandew/supertab'
-Plug 'benekastah/neomake'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tommcdo/vim-exchange'
-Plug 'Raimondi/delimitMate'
-Plug 'kshenoy/vim-signature'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/vim-easy-align'
-Plug 'vim-airline/vim-airline'
-Plug 'ntpeters/vim-better-whitespace'
-
-" Aesthetics
-Plug 'mhinz/vim-startify'
-Plug 'sheerun/vim-polyglot'
-Plug 'noahfrederick/vim-noctu'
-Plug 'vim-airline/vim-airline-themes'
-
-" Misc
-Plug 'kassio/neoterm'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-Plug 'critiqjo/lldb.nvim'
-Plug 'mrtazz/simplenote.vim'
-Plug 'easymotion/vim-easymotion'
-
-call plug#end()
-
-" Startify "
-let g:startify_session_dir = '~/.config/nvim/sessions'
-
-" Session "
-let g:session_directory = '~/.config/nvim/sessions'
-let g:session_autosave = 'no'
-
-" Simplenote "
-source ~/.simplenoterc
-
-" Polyglot "
-let g:jsx_ext_required=0
-
-" Git gutter "
-let g:gitgutter_override_sign_column_highlight = 0
-hi GitGutterAdd          ctermbg = black  ctermfg = green
-hi GitGutterChange       ctermbg = black  ctermfg = green
-hi GitGutterDelete       ctermbg = black  ctermfg = red
-hi GitGutterChangeDelete ctermbg = black  ctermfg = red
-
-" CtrlP "
-let g:ctrlp_extensions = ['quickfix', 'undo']
-let g:ctrlp_custom_ignore = 'node_modules\|.git'
-
-" NERDTree "
-map <C-\> :NERDTreeToggle<CR>
-
-" EasyMotion "
-hi EasyMotionTarget ctermbg=none ctermfg=red
-hi EasyMotionTarget2First ctermfg=yellow
-hi EasyMotionTarget2Second ctermfg=yellow
-
-hi EasyMotionMoveHL ctermfg=black
-
-" Airline "
-let g:airline_left_sep  = ''
-let g:airline_right_sep = ''
-
-let g:airline_theme = 'hybridline'
-let g:airline#extensions#tabline#enabled = 1
-
-" SuperTab "
-let g:SuperTabCrMapping = 1
-let g:SuperTabMappingTabLiteral = '<S-Tab>'
-let g:SuperTabDefaultCompletionType = 'context'
-
-" vim-easy-align "
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" tagbar "
-nmap <C-f> :TagbarToggle<CR>
-
-" neomake "
-let g:neomake_cpp_enable_marks=['gcc']
-let g:neomake_cpp_gcc_args = ["-std=c++11", "-pedantic", "-Wall"]
-autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
-autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
-set complete+=t
-
-" Commentary "
-autocmd FileType lua setlocal commentstring=--\ %s\ --
-
-" misc "
-set lazyredraw
-set regexpengine=1
 
 " Security "
 " Prevent various Vim features from keeping the contents of pass(1) password
@@ -225,4 +211,3 @@ if has('viminfo')
         augroup END
     endif
 endif
-
