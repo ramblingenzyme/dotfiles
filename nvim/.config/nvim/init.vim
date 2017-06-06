@@ -67,6 +67,7 @@ noremap <leader><CR> :noh<CR>
 
 "--PLUGINS--"
 call plug#begin ('~/.config/nvim/bundle')
+Plug 'w0rp/ale'
 Plug 'kassio/neoterm'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
@@ -75,7 +76,6 @@ Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'benekastah/neomake'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'Raimondi/delimitMate'
@@ -146,9 +146,12 @@ nmap ga <Plug>(EasyAlign)
 nmap <C-f> :TagbarToggle<CR>
 
 " neomake "
-autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
-autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
-set complete+=t
+" autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
+" autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
+" set complete+=t
+
+" ale "
+
 
 " test.vim "
 let test#strategy = "neoterm"
