@@ -34,7 +34,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0 = peep:size=10;0
-font-1 = Stlarch:pixelsize=12;-2
+font-1 = Stlarch:size=12;-2
 font-2 = unifont:size=6:heavy:fontformat=truetype;-2
 
 modules-left = bspwm mpd

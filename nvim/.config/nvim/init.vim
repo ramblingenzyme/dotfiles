@@ -9,14 +9,17 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Functionality
+Plug 'w0rp/ale'
 Plug 'sickill/vim-pasta'
 Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
-Plug 'benekastah/neomake'
+Plug 'thinca/vim-localrc'
+" Plug 'benekastah/neomake'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tommcdo/vim-exchange'
@@ -42,6 +45,9 @@ hi GitGutterAdd          ctermfg = green
 hi GitGutterChange       ctermfg = green
 hi GitGutterDelete       ctermfg = red
 hi GitGutterChangeDelete ctermfg = red
+
+" localrc
+let g:localrc_filename = ".local.vimrc"
 
 " CtrlP "
 let g:ctrlp_extensions = ['quickfix', 'undo']
@@ -70,12 +76,12 @@ nmap ga <Plug>(EasyAlign)
 nmap <C-f> :TagbarToggle<CR>
 
 " neomake "
-let g:neomake_cpp_enable_marks=['gcc']
-let g:neomake_cpp_gcc_args = ["-std=c++11", "-pedantic", "-Wall"]
+" let g:neomake_cpp_enable_marks=['gcc']
+" let g:neomake_cpp_gcc_args = ["-std=c++11", "-pedantic", "-Wall"]
 
-autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
-autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
-set complete+=t
+" autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
+" autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
+" set complete+=t
 
 " Commentary "
 autocmd FileType lua setlocal commentstring=--\ %s\ --
@@ -93,6 +99,7 @@ set nu
 "--FUNCTIONALITY--"
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
+
 
 " File browsing
 let g:netrw_banner=0

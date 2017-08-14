@@ -11,8 +11,8 @@ super + shift + s
 super + {a,s,d}
     bspc desktop -f {prev.local,last.local,next.local}
 
-super + {f,t,space}
-    bspc node -t {~fullscreen,tiled,~floating}
+super + {f,t,p,space}
+    bspc node -t {~fullscreen,tiled,~pseudo_tiled,~floating}
 
 super + ctrl + space
     bspc node -p cancel
