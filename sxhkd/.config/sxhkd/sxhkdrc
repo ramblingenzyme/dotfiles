@@ -74,16 +74,6 @@ super + {_,ctrl,alt, shift} + Return
 super +  r
     rofi_wrapper
 
-# mpc
-F1
-    mpc prev
-
-F2
-    mpc toggle
-
-F3
-    mpc next
-
 # brightness
 {_,shift+} XF86MonBrightnessDown
     xbacklight {-5,= 1}
@@ -103,6 +93,9 @@ XF86AudioMute
 
 XF86Explorer
     lock
+
+Print
+    maim --select /tmp/scrot.png
 
 # make sxhkd reload its configuration files:
 super + Escape

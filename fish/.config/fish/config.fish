@@ -1,5 +1,9 @@
 eval (dircolors -c ~/.dircolors)
-eval (thefuck --alias | tr '\n' ';')
+#eval (thefuck --alias | tr '\n' ';')
 
 set -x BROWSER firefox
 set -x EDITOR nvim
+
+set -x TTC_BOTS tinycarebot,selfcare_bot,magicrealismbot
+set -x TTC_REPOS ~/src
+set -x TTC_APIKEYS false

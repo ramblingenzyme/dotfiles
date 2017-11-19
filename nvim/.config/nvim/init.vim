@@ -4,6 +4,7 @@ call plug#begin ('~/.config/nvim/bundle')
 Plug 'reedes/vim-pencil'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-journal'
 
 " Tpope
 Plug 'tpope/vim-eunuch'
@@ -14,12 +15,13 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Functionality
+Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
+Plug 'othree/xml.vim'
 Plug 'sickill/vim-pasta'
 Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
 Plug 'thinca/vim-localrc'
-" Plug 'benekastah/neomake'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tommcdo/vim-exchange'
@@ -97,6 +99,9 @@ colo noctu
 set nu
 
 "--FUNCTIONALITY--"
+
+autocmd BufEnter * silent! lcd %:p:h
+
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 

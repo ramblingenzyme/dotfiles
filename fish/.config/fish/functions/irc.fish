@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.mkn14q/irc.fish @ line 2
+# Defined in /tmp/fish.O3PL3J/irc.fish @ line 2
 function irc
-	ssh ubuntu@ec2-54-252-231-234.ap-southeast-2.compute.amazonaws.com
+	ssh ubuntu@13.210.41.231
 end

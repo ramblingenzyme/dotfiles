@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 
-if [ "$1" == "-l" ]; then
-    ls "*.md"
+find_file () {
+    FILE=$(find . -name "*$1*.md")
 
-elif [ "$1" == "-c" ] && ls | grep $2 > /dev/null ; then
-    pandoc $(ls | grep $2) -o "${2}.pdf"
-    exit
+    if [ -z "$FILE" ]; then
+        FILE="$(date --rfc-3339='date')-$1.md"
+    fi
 
-elif ls | grep $1 > /dev/null ; then
-    FILE=$(ls | grep $1 | grep ".md")
-else
-    FILE="$(date --rfc-3339='date')-$1.md"
+    echo "$FILE"
+}
+
+if [ $# -eq  0 ]; then
+    tree ~/usr/notes/
+
+elif [ $# -eq 1 ]; then
+    FILE=$( find_file "$1" )
+    exec nvim "$FILE"
 fi
 
-exec nvim "$FILE"
