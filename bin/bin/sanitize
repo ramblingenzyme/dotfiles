@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for file in "$@"; do
+    if [ -f "$file" ]; then
+        perl-rename -v 'y/A-Z/a-z/; s/[\s_-]+/-/g' "$file"
+    fi
+done
+

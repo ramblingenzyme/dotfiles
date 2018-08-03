@@ -18,7 +18,7 @@ cursor          = {{ colors.foreground }}
 background      = {{ colors.background }}
 
 # black
-color0  = {{ colors.black }}
+color0  = {{ colors.background }}
 color8  = {{ colors.black }}
 
 # red

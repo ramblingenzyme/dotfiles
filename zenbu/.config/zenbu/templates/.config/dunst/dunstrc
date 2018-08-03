@@ -1,7 +1,8 @@
 [global]
-    font = Dina 10
+    font = {{ term_fonts }} {{ pixelsize }}
     frame_width = 3
-    frame_color = "#F0F0F0"
+    frame_color = "{{ colors.foreground }}"
+
 
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -48,7 +49,7 @@
 
     # Split notifications into multiple lines if they don't fit into
     # geometry.
-    word_wrap = no
+    word_wrap = yes
 
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
@@ -66,11 +67,11 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x5-15+35"
+    geometry = "175x3+1735+10"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
-    shrink = no
+    shrink = yes
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
@@ -149,6 +150,8 @@
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
+    stack_duplicates = no
+
 [shortcuts]
 
     # Shortcuts are specified as [modifier+][modifier+]...key
@@ -168,23 +171,23 @@
     history = ctrl+grave
 
     # Context menu.
-    context = ctrl+shift+period
+    context = ctrl+shift+grave
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1D2021"
-    foreground = "#FCF4C1"
+    background = "{{ colors.background }}"
+    foreground = "{{ colors.foreground }}"
     timeout = 10
 
 [urgency_normal]
-    background = "#1D2021"
-    foreground = "#FCF4C1"
+    background = "{{ colors.background }}"
+    foreground = "{{ colors.foreground }}"
     timeout = 10
 
 [urgency_critical]
-    background = "#1D2021"
-    foreground = "#FCF4C1"
+    background = "{{ colors.background }}"
+    foreground = "{{ colors.foreground }}"
     timeout = 0
 
 

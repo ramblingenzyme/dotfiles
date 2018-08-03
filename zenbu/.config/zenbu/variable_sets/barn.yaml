@@ -1,8 +1,8 @@
 background_file: barn.jpg
 colors:
-    red: '#a98d63'
-    green: '#a9adc5'
-    yellow: '#8485ab'
-    blue: '#a96d8e'
-    magenta: '#a5989f'
-    cyan: '#aa2d4e'
+    red: '#aa2d4e'
+    green: '#6f77a0'
+    yellow: '#a98d63'
+    blue: '#929ec8'
+    magenta: '#554e65'
+    cyan: '#893c30'

@@ -8,38 +8,32 @@ super + shift + Escape
 super + shift + s
     bspc node -c
 
-super + {a,s,d}
-    bspc desktop -f {prev.local,last.local,next.local}
+super + {_,alt +} {a,s,d}
+    bspc desktop -{f,s} {prev.local,last.local,next.local}
 
 super + {f,t,p,space}
     bspc node -t {~fullscreen,tiled,~pseudo_tiled,~floating}
 
-super + ctrl + space
+super + ctrl + {space,p}
     bspc node -p cancel
 
-super + {_,shift + }{h,j,k,l}
-    bspc node -{f,s} {west,south,north,east}
+super + {_,shift + ,ctrl +}{h,j,k,l}
+    bspc node -{f,s,p} {west,south,north,east}
 
 super + {comma,period}
     bspc node @/ -R {270,90}
 
-super + ctrl + {h,j,k,l}
-    bspc node -p {west,south,north,east}
-
-super + ctrl + q
-    bspc node -p cancel
-
 super + alt + h
-    bspc node @west -r -10; bspc node @east -r -10
+    bspc node @west -r -10 || bspc node @east -r -10
 
 super + alt + l
-    bspc node @west -r +10; bspc node @east -r +10
+    bspc node @west -r +10 || bspc node @east -r +10
 
 super + alt + j
-    bspc node @north -r +10; bspc node @south -r +10
+    bspc node @north -r +10 || bspc node @south -r +10
 
 super + alt + k
-    bspc node @north -r -10; bspc node @south -r -10
+    bspc node @north -r -10 || bspc node @south -r -10
 
 super + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
@@ -47,9 +41,9 @@ super + {_,shift + }{1-9,0}
 super + {_,shift +}{q,w,e,z,x,c}
     bspc {desktop -f,node -d} '^{4-9}'
 
+
 super + {minus,equal}
     bspc config window_gap $((`bspc config window_gap` {-,+} 2 ))
-
 
 #
 # wm independent hotkeys
@@ -66,13 +60,13 @@ super + ctrl + {Left,Down,Up,Right}
     xdo resize {-w -10,-h +10,-h -10,-w +10}
 
 super + alt + {Left,Down,Up,Right}
-    xdo move {-x 20, -y 1060, -y 65, -x 1900}
+    xdo move {-x 20, -y 1060, -y 50, -x 1900}
 
 super + {_,ctrl,alt, shift} + Return
     {termite -e fish,firefox,termite -e ranger,termite -e nvim}
 
-super +  r
-    rofi_wrapper
+super + {_,alt +, ctrl +}  r
+    {rofi_wrapper,theme,passmenu}
 
 # brightness
 {_,shift+} XF86MonBrightnessDown
@@ -95,7 +89,7 @@ XF86Explorer
     lock
 
 Print
-    maim --select /tmp/scrot.png
+    yaxg -spFq -e 'cat $f | xclip -i -t image/png -selection clipboard && notify-send "yaxg" "Copied to clipboard"' /tmp/scrot.png
 
 # make sxhkd reload its configuration files:
 super + Escape

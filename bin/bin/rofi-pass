@@ -16,7 +16,7 @@ password=$(list_passwords | rofi -dmenu)
 if [ -n "$password" ]; then
     bspc rule -a Termite -o state=floating
 
-    termite -e "pass -c $password"
+    termite -e "pass -c $password > wtf 2>&1"
 
     notify-send "$password has been copied to the clipboard: $(xclip -o -selection clipboard)"
 fi

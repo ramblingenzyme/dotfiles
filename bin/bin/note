@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 find_file () {
-    FILE=$(find . -name "*$1*.md")
+    FILE=$(find . -name "*$1*")
 
     if [ -z "$FILE" ]; then
         FILE="$(date --rfc-3339='date')-$1.md"

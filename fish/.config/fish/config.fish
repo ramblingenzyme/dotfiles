@@ -1,5 +1,8 @@
-eval (dircolors -c ~/.dircolors)
+
+ eval (dircolors -c ~/.dircolors)
 #eval (thefuck --alias | tr '\n' ';')
+
+set -x PATH ~/bin/ ~/.local/bin $PATH
 
 set -x BROWSER firefox
 set -x EDITOR nvim

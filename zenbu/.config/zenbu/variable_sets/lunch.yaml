@@ -1,8 +1,11 @@
 background_file: lunch.jpg
 colors:
-    red: '#ab948c'
-    green: '#bcb5b2'
-    yellow: '#aa8875'
-    blue: '#aa7a5d'
-    magenta: '#c3c5c6'
-    cyan: '#a5a0a4'
+    red: '#69363B'
+    green: '#7B8172'
+    yellow: '#D39763'
+    blue: '#145764'
+    magenta: '#553B4A'
+    cyan: '#648BA2'
+    background: '#221E24'
+    black: '#4D4C55'
+    white: '#CBDAE1'

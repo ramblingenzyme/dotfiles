@@ -10,7 +10,6 @@ Plug 'junegunn/vim-journal'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
@@ -31,13 +30,41 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tomedunn/vim.fortran'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'soli/prolog-vim'
 
 " Aesthetics
 Plug 'sheerun/vim-polyglot'
 Plug 'noahfrederick/vim-noctu'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'junegunn/fzf'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 call plug#end()
+
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['pyls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
+let g:LanguageClient_loggingFile = '/tmp/LanguageClient.log'
+
 
 " Polyglot "
 let g:jsx_ext_required=0
@@ -64,6 +91,7 @@ let g:airline_right_sep = ''
 
 let g:airline_theme = 'term'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " SuperTab "
 let g:SuperTabCrMapping = 1
@@ -77,6 +105,10 @@ nmap ga <Plug>(EasyAlign)
 " tagbar "
 nmap <C-f> :TagbarToggle<CR>
 
+let g:ale_linters = {'markdown': ['redpen','vale','write-good','textlint']}
+let g:ale_fortran_gcc_use_free_form = 0
+let g:ale_linter_aliases = {'pandoc': ['markdown']}
+
 " neomake "
 " let g:neomake_cpp_enable_marks=['gcc']
 " let g:neomake_cpp_gcc_args = ["-std=c++11", "-pedantic", "-Wall"]
@@ -87,6 +119,9 @@ nmap <C-f> :TagbarToggle<CR>
 
 " Commentary "
 autocmd FileType lua setlocal commentstring=--\ %s\ --
+
+" Super tab "
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 "--APPEARANCE--"
 " Syntax
@@ -119,7 +154,6 @@ set path+=**
 set wildmenu
 
 " Split
-set splitbelow
 set splitright
 
 " Search
@@ -145,7 +179,9 @@ set scrolloff=7
 set mouse=
 
 " Markdown syntax
-autocmd BufRead,BufNew *.md set filetype=markdown
+augroup pandoc_syntax
+autocmd BufRead,BufNew *.md set filetype=markdown.pandoc
+augroup END
 
 "--KEYBINDS--"
 

@@ -8,3 +8,5 @@ def nohash(hex):
 def to_rgb(hex):
   return struct.unpack('BBB', nohash(hex).decode('hex'))
 
+def to_hex(hex):
+  return "0x{}".format(nohash(hex))

@@ -16,30 +16,31 @@ battery = {{ panel.battery.med }}
 
 
 [global/wm]
+margin-bottom = 0
 margin-top = 0
 
 [bar/default]
-width = 100%
-height = 30
-offset-x = 0
-offset-y = 0
+width = 80%
+height = 40
+offset-x = 10%
+offset-y = 10
 
-spacing = 0
-padding-left = 0
-padding-right = 2
+padding = 2
 module-margin-left = 0
 module-margin-right = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0 = peep:size=10;0
-font-1 = Stlarch:size=12;-2
+font-0 = {{ term_fonts }}:size=10;1
+font-1 = Stlarch:size=12;1
 font-2 = unifont:size=6:heavy:fontformat=truetype;-2
 
-modules-left = bspwm mpd
+modules-left = bspwm
 modules-center = xwindow
-modules-right = wlan seperator memory seperator volume seperator battery seperator date
+modules-right = wlan seperator volume seperator battery seperator date
+
+wm-restack = bspwm
 
 [module/seperator]
 type = custom/text
@@ -47,27 +48,30 @@ content = "  "
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:80:...%
+label = %title%
+label-maxlen = 80
+format-padding = 2
 
-format-foreground = ${colors.title}
+format-foreground = ${colors.foreground}
 
 [module/bspwm]
 type = internal/bspwm
 ;ws-icon-default = x
+label-focused = "%name%  "
+label-focused-foreground = ${colors.focused}
 
-label-focused = " %name% "
-label-focused-background = ${colors.focused}
-
-label-occupied = " %name% "
+label-occupied = "%name%  "
 ;label-occupied-padding = 2
 
-label-urgent = " %name% "
+label-urgent = "%name%  "
 label-urgent-background = ${colors.alert}
 ;label-urgent-padding = 2
 
-label-empty = " %name% "
+label-empty = "%name%  "
 label-empty-foreground = ${colors.foreground-alt}
 ;label-empty-padding = 2
+
+pin-workspaces = true
 
 [module/mpd]
 type = internal/mpd
@@ -81,7 +85,7 @@ format-offline =
 
 format-online-background = ${colors.mpd}
 
-label-song-maxlen = 40
+label-song-maxlen = 36
 label-song-ellipsis = true
 
 toggle-off-foreground = #66
@@ -116,9 +120,10 @@ label =  %time%
 [module/volume]
 type = internal/volume
 
-label-muted =  %percentage%
-label-volume =  %percentage%
+label-muted =  %percentage%%
+label-volume =  %percentage%%
 
+label-muted-foreground = ${colors.alert}
 label-volume-foreground = ${colors.foreground}
 mapping = false
 
@@ -133,10 +138,10 @@ format-background = $(colors.battery)
 [module/powermenu]
 type = custom/menu
 
-label-open =  power
-label-open-foreground = ${colors.secondary}
+label-open = 
+label-open-foreground = ${colors.alert}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.alert}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 

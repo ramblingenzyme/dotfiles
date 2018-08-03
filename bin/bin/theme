@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
-THEME=$(ls ~/.config/zenbu/variable_sets/ | cut -d. -f1 | fzf)
+if [ "$1" ]; then
+    THEME="$1"
+else
+    THEME=$(ls ~/.config/zenbu/variable_sets/ | cut -d. -f1 | rofi -dmenu -p "theme")
+fi
 
-if [ $THEME ]; then
-    zenbu $THEME >/dev/null
+
+if [ "$THEME" ]; then
+    zenbu "$THEME" >/dev/null
     bspwm_colors &
+    pkill dunst
 fi
