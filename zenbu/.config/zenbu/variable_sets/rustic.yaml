@@ -15,6 +15,7 @@ colors:
     background:     "{{ colors.black }}"
 
 panel:
+    background: "{{ colors.black }}"
     battery:
         med: "{{ colors.yellow }}"
     mpd:

@@ -55,6 +55,7 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
+    \ 'typescript': ['~/.yarn/bin/javascript-typescript-stdio']
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -109,13 +110,8 @@ let g:ale_linters = {'markdown': ['redpen','vale','write-good','textlint']}
 let g:ale_fortran_gcc_use_free_form = 0
 let g:ale_linter_aliases = {'pandoc': ['markdown']}
 
-" neomake "
-" let g:neomake_cpp_enable_marks=['gcc']
-" let g:neomake_cpp_gcc_args = ["-std=c++11", "-pedantic", "-Wall"]
-
-" autocmd BufWinEnter,BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp Neomake gcc
-" autocmd BufWinEnter,BufWritePost *.js,*.jsx Neomake eslint
-" set complete+=t
+" pandoc "
+let g:pandoc#modules#disabled = ["folding"]
 
 " Commentary "
 autocmd FileType lua setlocal commentstring=--\ %s\ --

@@ -4,7 +4,7 @@ find_file () {
     FILE=$(find . -name "*$1*")
 
     if [ -z "$FILE" ]; then
-        FILE="$(date --rfc-3339='date')-$1.md"
+        FILE="$(date '+%Y-%m-%d-%H-%M')-$1.md"
     fi
 
     echo "$FILE"
