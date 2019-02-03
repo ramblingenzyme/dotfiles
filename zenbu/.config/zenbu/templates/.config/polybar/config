@@ -38,7 +38,7 @@ font-2 = unifont:size=6:heavy:fontformat=truetype;-2
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = wlan seperator volume seperator battery seperator date
+modules-right = wlan seperator memory seperator volume seperator battery seperator date
 
 wm-restack = bspwm
 
@@ -49,7 +49,7 @@ content = "  "
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 80
+label-maxlen = 70
 format-padding = 2
 
 format-foreground = ${colors.foreground}
@@ -80,10 +80,11 @@ label-song = "%title% "
 icon-pause = 
 icon-play = 
 
-format-online = " <toggle> <label-song> "
+format-online = "  <toggle> <label-song> "
 format-offline =
 
-format-online-background = ${colors.mpd}
+format-online-background = ${colors.background}
+format-online-foreground = ${colors.foreground}
 
 label-song-maxlen = 36
 label-song-ellipsis = true

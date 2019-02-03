@@ -34,6 +34,7 @@ Plug 'tomedunn/vim.fortran'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'soli/prolog-vim'
+Plug 'luochen1990/rainbow'
 
 " Aesthetics
 Plug 'sheerun/vim-polyglot'
@@ -66,6 +67,7 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
 let g:LanguageClient_loggingFile = '/tmp/LanguageClient.log'
 
+let g:rainbow_active = 1
 
 " Polyglot "
 let g:jsx_ext_required=0
