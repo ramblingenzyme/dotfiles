@@ -83,7 +83,7 @@ XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 {XF86AudioLowerVolume,XF86AudioRaiseVolume}
-    pactl set-sink-volume @DEFAULT_SINK@ {-,+}2%
+    pactl set-sink-volume @DEFAULT_SINK@ {-,+}1%
 
 XF86Explorer
     lock

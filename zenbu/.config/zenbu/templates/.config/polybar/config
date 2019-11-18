@@ -119,7 +119,7 @@ time = %I:%M %p
 label =  %time%
 
 [module/volume]
-type = internal/volume
+type = internal/pulseaudio
 
 label-muted =  %percentage%%
 label-volume =  %percentage%%
