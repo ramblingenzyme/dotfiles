@@ -1,0 +1,24 @@
+# Fonts
+term_fonts: "Dina"
+pixelsize: 10
+
+# Background
+background_file:    "darktooth.jpg"
+
+# Colors
+colors:
+    black:          "#1D2021"
+    red:            "#FB543F"
+    green:          "#95C085"
+    yellow:         "#FAC03B"
+    blue:           "#0D6678"
+    magenta:        "#8F4673"
+    cyan:           "#8BA59B"
+    white:          "#A89984"
+    foreground:     "{{ colors.white }}"
+    background:     "{{ colors.black }}"
+
+panel:
+    foreground:     "#FDF4C1"
+    battery:
+        med:        "#FEB625"

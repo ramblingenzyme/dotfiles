@@ -3,7 +3,7 @@
 set -m
 
 # run rofi then set rule
-rofi -show run & 
+rofi -show run &
 launch_on_current
 
 # bring rofi to foreground so that the rule gets deleted 2 seconds after closing rofi

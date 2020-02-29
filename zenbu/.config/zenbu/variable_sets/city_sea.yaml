@@ -1,0 +1,16 @@
+background_file: city_sea.jpg
+colors:
+    black: '#693d3a'
+    red: '#a4300d'
+    green: '#457067'
+    yellow: '#f5b755'
+    blue: '#5ba8a3'
+    magenta: '#f49d93'
+    cyan: '#A4C9C7'
+    white: '#e7ccc0'
+    background: '#201614'
+
+panel:
+    workspaces:
+        focused:    "{{ colors.green }}"
+        urgent:     "{{ colors.red }}"

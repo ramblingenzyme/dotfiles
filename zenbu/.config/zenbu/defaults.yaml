@@ -1,0 +1,36 @@
+# Fonts
+term_fonts: "Dina"
+pixelsize: 10
+
+# Background
+background_file:    "darktooth.jpg"
+
+# Colors
+colors:
+  black:        "#4b4b4c"
+  red:          "#FB543F"
+  green:        "#95C085"
+  yellow:       "#FAC03B"
+  blue:         "#0D6678"
+  magenta:      "#8F4673"
+  cyan:         "#8BA59B"
+  white:        "#F0F0F0"
+  foreground:   "{{ colors.white }}"
+  background:   "#232324"
+
+# Panel
+panel:
+    background:     "{{ colors.background }}"
+    foreground:     "{{ colors.white }}"
+    battery:
+        high:       "{{ colors.green }}"
+        med:        "{{ colors.yellow }}"
+        low:        "{{ colors.red }}"
+    workspaces:
+        focused:    "{{ colors.magenta }}"
+        urgent:     "{{ colors.red }}"
+    title:
+        background: "{{ colors.cyan }}"
+    mpd:
+        background: "{{ colors.cyan }}"
+

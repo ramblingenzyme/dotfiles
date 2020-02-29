@@ -1,0 +1,8 @@
+background_file: water_bridge.jpg
+colors:
+    red: '#238eb4'
+    green: '#b2bec4'
+    yellow: '#6e99ae'
+    blue: '#9c9fa2'
+    magenta: '#4d60aa'
+    cyan: '#ab4950'

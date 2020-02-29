@@ -1,0 +1,15 @@
+background_file: trail_bridge.jpg
+colors:
+    red: '#75432F'
+    blue: '#6495a6'
+    yellow: '#E9AD78'
+    cyan: '#8a9fa7'
+    magenta: '#6F847F'
+    green: '#4A6058'
+    background: '#1D272E'
+    black: '#938988'
+    white: '#98A9A8'
+
+panel:
+  workspaces:
+    focused: "{{ colors.yellow }}"

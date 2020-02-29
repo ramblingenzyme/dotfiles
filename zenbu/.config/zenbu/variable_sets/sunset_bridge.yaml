@@ -1,0 +1,11 @@
+background_file: sunset_bridge.jpg
+colors:
+    black: '#244149'
+    white: '#F5D4AB'
+    red: '#963D03'
+    green: '#647876'
+    yellow: '#F8B71F'
+    blue: '#c79b67'
+    magenta: '#5D2915'
+    cyan: '#7ba4a7'
+    background: '#150102'

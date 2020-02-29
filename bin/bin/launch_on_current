@@ -4,8 +4,8 @@
 CURRENT_DESKTOP=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3 + 1}')
 
 # if a rule was left over, delete it
-if [ $(bspc rule -l | grep "\*" | wc -l) -ne 0 ]; then
+if [ "$(bspc rule -l | grep -c "\\*")" -ne 0 ]; then
 	bspc rule -r \*
 fi
 
-bspc rule -a \* -o desktop=^$CURRENT_DESKTOP
+bspc rule -a \* -o desktop=^"$CURRENT_DESKTOP"

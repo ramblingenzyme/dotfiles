@@ -1,0 +1,8 @@
+background_file: mountain_village.jpg
+colors:
+    red: '#ab3f3d'
+    green: '#ac938a'
+    yellow: '#aa826d'
+    blue: '#5c85aa'
+    magenta: '#9f9fa9'
+    cyan: '#bdbac1'

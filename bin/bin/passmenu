@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+list_passwords() {
+    cd "/home/$(whoami)/.password-store" || exit
+        passwords=( **/*.gpg )
+
+      for password in "${passwords[@]}"; do
+        filename="${password}"
+        filename="${filename%.gpg}"
+        echo "$filename"
+    done
+}
+
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=( "$prefix"/**/*.gpg )
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+password=""
+
+password=$(list_passwords | rofi -dmenu "$@" -p "pass")
+
+[[ -n $password ]] || exit
+
+program="pass"
+
+if [[ $password = "otp/"* ]]; then
+    program="pass otp"
+fi
+
+if $program -c "$password"; then
+    notify-send "Copied $password to clipboard"
+else
+    gpg_pw=$(rofi -dmenu -p "GPG password" -password -lines 1)
+
+    /usr/libexec/gpg-preset-passphrase -P "$gpg_pw" -c F497A621E3ECC82D2338A693D1DEDABD6B0B355F
+
+    if $program -c "$password"; then
+        notify-send "Copied $password to clipboard"
+    else
+        notify-send "Failed to copy $password to clipboard"
+    fi
+fi

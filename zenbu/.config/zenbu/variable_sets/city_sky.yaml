@@ -1,0 +1,8 @@
+background_file: city_sky.jpg
+colors:
+    red: '#2f83a8'
+    green: '#91a3ad'
+    yellow: '#6490aa'
+    blue: '#115daa'
+    magenta: '#bbbfc4'
+    cyan: '#a88496'

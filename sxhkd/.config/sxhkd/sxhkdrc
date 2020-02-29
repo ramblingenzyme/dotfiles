@@ -6,56 +6,44 @@ super + shift + Escape
     bspc quit
 
 super + shift + s
-    bspc window -c
+    bspc node -c
 
-super + {a,s,d}
-    bspc desktop -f {prev.local,last.local,next.local}
+super + {_,alt +} {a,s,d}
+    bspc desktop -{f,s} {prev.local,last.local,next.local}
 
-super + f
-    bspc window -t fullscreen
+super + {f,t,p,space}
+    bspc node -t {~fullscreen,tiled,~pseudo_tiled,~floating}
 
-super + ctrl + space
-    bspc window -t floating
+super + ctrl + {space,p}
+    bspc node -p cancel
 
-super + apostrophe
-    bspc window -s last
-
-super + {_,shift + }{h,j,k,l}
-    bspc window -{f,s} {left,down,up,right}
+super + {_,shift + ,ctrl +}{h,j,k,l}
+    bspc node -{f,s,p} {west,south,north,east}
 
 super + {comma,period}
-    bspc desktop -f {prev,next}
-
-super + ctrl + {h,j,k,l}
-    bspc window -p {left,down,up,right}
-
-super + ctrl + q
-    bspc window -p cancel
+    bspc node @/ -R {270,90}
 
 super + alt + h
-    bspc window -e right -10; bspc window -e left -10
+    bspc node @west -r -10 || bspc node @east -r -10
 
 super + alt + l
-    bspc window -e right +10; bspc window -e left +10
+    bspc node @west -r +10 || bspc node @east -r +10
 
 super + alt + j
-    bspc window -e up +10; bspc window -e down +10
+    bspc node @north -r +10 || bspc node @south -r +10
 
 super + alt + k
-    bspc window -e up -10; bspc window -e down -10
+    bspc node @north -r -10 || bspc node @south -r -10
 
 super + {_,shift + }{1-9,0}
-    bspc {desktop -f,window -d} '^{1-9,10}'
+    bspc {desktop -f,node -d} '^{1-9,10}'
 
 super + {_,shift +}{q,w,e,z,x,c}
-    bspc {desktop -f,window -d} '^{4-9}'
+    bspc {desktop -f,node -d} '^{4-9}'
+
 
 super + {minus,equal}
-    bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
-
-super + v
-    bspc control --toggle-visibility
-
+    bspc config window_gap $((`bspc config window_gap` {-,+} 2 ))
 
 #
 # wm independent hotkeys
@@ -72,57 +60,36 @@ super + ctrl + {Left,Down,Up,Right}
     xdo resize {-w -10,-h +10,-h -10,-w +10}
 
 super + alt + {Left,Down,Up,Right}
-    xdo move {-x 20, -y 1060, -y 20, -x 1900}
+    xdo move {-x 20, -y 1060, -y 50, -x 1900}
 
 super + {_,ctrl,alt, shift} + Return
     {termite -e fish,firefox,termite -e ranger,termite -e nvim}
 
-super + r
-    rofi_wrapper
-
-# mpc
-F1
-    music toggle
-
-F2
-    music next
-
-# yt
-F3
-    mpv --ytdl "$(xclip -o -selection clipboard)"
-
-F4
-    mouse
-
-F5
-    monitor
+super + {_,alt +, ctrl +}  r
+    {rofi_wrapper,theme,passmenu}
 
 # brightness
-F6
-    xbacklight -5
+{_,shift+} XF86MonBrightnessDown
+    xbacklight {-5,= 1}
 
-shift + F6
-    xbacklight = 1
+{_,shift+} XF86MonBrightnessUp
+    xbacklight {+5,= 100}
 
-F7
-    xbacklight +5
-
-shift + F7
-    xbacklight = 100
-
+XF86Display
+    monitor
 
 # audio
-F8
+XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-F9
-    pactl set-sink-volume @DEFAULT_SINK@ -2%
+{XF86AudioLowerVolume,XF86AudioRaiseVolume}
+    pactl set-sink-volume @DEFAULT_SINK@ {-,+}1%
 
-F10
-    pactl set-sink-volume @DEFAULT_SINK@ +2%
-
-XF86PowerOff
+XF86Explorer
     lock
+
+Print
+    yaxg -spFq -e 'cat $f | xclip -i -t image/png -selection clipboard && notify-send "yaxg" "Copied to clipboard"' /tmp/scrot.png
 
 # make sxhkd reload its configuration files:
 super + Escape

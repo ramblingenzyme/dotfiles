@@ -1,0 +1,8 @@
+background_file: tree.jpg
+colors:
+    red: '#aa6d2e'
+    green: '#a99913'
+    yellow: '#a2a058'
+    blue: '#8baa11'
+    magenta: '#a0a69f'
+    cyan: '#5c7caa'

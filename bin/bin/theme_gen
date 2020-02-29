@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# requires https://github.com/metakirby5/colorz
+
+template="${1%.*}.yaml"
+echo $template
+
+colorz --no-preview $1 | awk '{print $1}' > /tmp/values
+sed -i~ -e "s/^/'/;s/$/'/" /tmp/values
+
+echo -e "background_file: $1\ncolors:" > $template
+
+paste -d' ' template /tmp/values >> $template

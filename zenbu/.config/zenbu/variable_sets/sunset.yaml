@@ -1,0 +1,23 @@
+# Fonts
+term_fonts: "Dina"
+pixelsize: 10
+
+# Background
+background_file:    "sunset.jpg"
+
+# Colors
+colors:
+    black:          "#2a271f"
+    white:          "#ece7bf"
+    red:            "#ab2c1c"
+    green:          "#aa9287"
+    yellow:         "#ad5b2c"
+    blue:           "#aa8546"
+    magenta:        "#c7ba90"
+    cyan:           "#8d85a9"
+    foreground:     "{{ colors.white }}"
+    background:     "{{ colors.black }}"
+
+panel:
+    battery:
+        med: "{{ colors.yellow }}"

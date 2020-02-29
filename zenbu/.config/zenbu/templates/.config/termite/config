@@ -1,0 +1,50 @@
+[options]
+search_wrap = true
+scrollback_lines = 1000
+mouse_autohide = true
+dynamic_title = true
+urgent_on_bell = true
+visual_bell = true
+clickable_url = true
+allow_bold = true
+font = {{ term_fonts }} {{ pixelsize }}
+
+browser = firefox
+
+[colors]
+foreground      = {{ colors.foreground }}
+foreground_bold = {{ colors.foreground }}
+cursor          = {{ colors.foreground }}
+background      = {{ colors.background }}
+
+# black
+color0  = {{ colors.background }}
+color8  = {{ colors.black }}
+
+# red
+color1  = {{ colors.red }}
+color9  = {{ colors.red }}
+
+# green
+color2  = {{ colors.green }}
+color10 = {{ colors.green }}
+
+# yellow
+color3  = {{ colors.yellow }}
+color11 = {{ colors.yellow }}
+
+# blue
+color4  = {{ colors.blue }}
+color12 = {{ colors.blue }}
+
+# magenta
+color5  = {{ colors.magenta }}
+color13 = {{ colors.magenta }}
+
+# cyan
+color6  = {{ colors.cyan }}
+color14 = {{ colors.cyan }}
+
+# white
+color7  = {{ colors.white }}
+color15 = {{ colors.white }}

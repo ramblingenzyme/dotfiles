@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Dependencies: xdotool, xtitle
-# Description: Show the currenly active window.
-
-xtitle `xdotool getactivewindow`

@@ -1,0 +1,30 @@
+# Fonts
+term_fonts: "Dina"
+pixelsize: 10
+
+# Background
+background_file:    "waterfall.jpg"
+
+# Colors
+#83aa69 #a9dc87
+#97a994 #c3dbbf
+#789fac #9acdde
+#b2c0c6 #def0f8
+#5087aa #67aedc
+#93b1c6 #b8ddf8
+
+colors:
+    black:          "#2e3031"
+    white:          "#e7e7f0"
+    red:            "#83aa69"
+    green:          "#97a994"
+    yellow:         "#789fac"
+    blue:           "#b2c0c6"
+    magenta:        "#5087aa"
+    cyan:           "#93b1c6"
+    foreground:     "{{ colors.white }}"
+    background:     "{{ colors.black }}"
+
+panel:
+    battery:
+        med: "{{ colors.yellow }}"

@@ -1,0 +1,8 @@
+background_file: canyon.jpg
+colors:
+    red: '#ad8b71'
+    green: '#ac7c56'
+    yellow: '#c5a68d'
+    blue: '#aa601d'
+    magenta: '#aa713d'
+    cyan: '#aa8120'

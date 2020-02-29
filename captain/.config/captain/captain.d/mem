@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-mem=$(free -m | tr -s ' ' | grep 'Mem' | cut -d " " -f3)
-echo "  %{F#FE8625}%{F-} ${mem}M "

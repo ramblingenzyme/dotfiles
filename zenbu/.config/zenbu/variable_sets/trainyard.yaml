@@ -1,0 +1,8 @@
+background_file: trainyard.jpg
+colors:
+    red: '#bc7e62'
+    green: '#c6b58c'
+    yellow: '#3f35aa'
+    blue: '#744faa'
+    magenta: '#a2689d'
+    cyan: '#ac5261'

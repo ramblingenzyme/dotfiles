@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+list_passwords() {
+    cd "/home/$(whoami)/.password-store" || exit
+        passwords=( **/*.gpg )
+
+      for password in "${passwords[@]}"; do
+        filename="${password}"
+        filename="${filename%.gpg}"
+        echo "$filename"
+    done
+}
+
+password=$(list_passwords | rofi -dmenu)
+
+if [ -n "$password" ]; then
+    bspc rule -a Termite -o state=floating
+
+    termite -e "pass -c $password > wtf 2>&1"
+
+    notify-send "$password has been copied to the clipboard: $(xclip -o -selection clipboard)"
+fi
