@@ -63,7 +63,7 @@ super + alt + {Left,Down,Up,Right}
     xdo move {-x 20, -y 1060, -y 50, -x 1900}
 
 super + {_,ctrl,alt, shift} + Return
-    {termite -e fish,firefox,termite -e ranger,termite -e nvim}
+    {alacritty -e fish,firefox,alacritty -e ranger,alacritty -e nvim}
 
 super + {_,alt +, ctrl +}  r
     {rofi_wrapper,theme,passmenu}
