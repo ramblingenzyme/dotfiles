@@ -129,9 +129,9 @@ label-volume-foreground = ${colors.foreground}
 mapping = false
 
 [module/battery]
-type = custom/script
-exec = battery
-tail = true
+type = internal/battery
+battery = BAT0
+adapter = ADP1
 label =  %output%
 
 format-background = $(colors.battery)
