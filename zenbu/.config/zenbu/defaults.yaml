@@ -5,6 +5,8 @@ pixelsize: 10
 # Background
 background_file:    "darktooth.jpg"
 
+term_padding: 10
+
 # Colors
 colors:
   black:        "#4b4b4c"

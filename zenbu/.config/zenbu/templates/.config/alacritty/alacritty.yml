@@ -19,17 +19,14 @@ env:
 # (change requires restart)
 window:
   padding:
-    x: 20
-    y: 20
+    x: {{ term_padding }}
+    y: {{ term_padding }}
 
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
 dpi:
   x: 96.0
   y: 96.0
-
-# Display tabs using this many cells (changes require restart)
-tabspaces: 4
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
@@ -129,7 +126,7 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
