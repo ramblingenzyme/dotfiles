@@ -104,7 +104,7 @@ label =  %gb_used%
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = {{ wireless_interface }}
 interval = 5.0
 
 label-connected =  %essid%

@@ -6,6 +6,7 @@ pixelsize: 10
 background_file:    "darktooth.jpg"
 
 term_padding: 10
+wireless_interface: wlp1s0
 
 # Colors
 colors:
