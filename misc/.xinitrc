@@ -1,3 +1,5 @@
+export MOZ_USE_XINPUT2=1
+
 xset +fp ~/.local/share/fonts
 xset fp rehash
 
