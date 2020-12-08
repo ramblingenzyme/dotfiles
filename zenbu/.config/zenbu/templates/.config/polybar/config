@@ -36,8 +36,8 @@ font-0 = {{ term_fonts }}:size=10;1
 font-1 = Stlarch:size=12;1
 font-2 = unifont:size=6:heavy:fontformat=truetype;-2
 
-modules-left = bspwm
-modules-center = xwindow
+modules-left = bspwm xwindow
+; modules-center = xwindow
 modules-right = wlan seperator memory seperator volume seperator battery seperator date
 
 wm-restack = bspwm
@@ -49,7 +49,7 @@ content = "  "
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 70
+label-maxlen = 60
 format-padding = 2
 
 format-foreground = ${colors.foreground}
