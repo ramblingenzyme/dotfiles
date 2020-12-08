@@ -132,7 +132,10 @@ mapping = false
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-label =  %output%
+label-charging =  %percentage%%+
+label-discharging =  %percentage%%-
+label-full =  %percentage%%
+
 
 format-background = $(colors.battery)
 
